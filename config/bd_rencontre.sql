@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 28 Mai 2020 à 21:40
+-- Généré le :  Ven 29 Mai 2020 à 16:51
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.4.6
 
@@ -90,13 +90,6 @@ CREATE TABLE `critere` (
   `commentaire` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Contenu de la table `critere`
---
-
-INSERT INTO `critere` (`id_critere`, `age_deb`, `age_fin`, `sexe`, `teint`, `taille_deb`, `taille_fin`, `morphologie`, `nationalite`, `religion`, `commentaire`) VALUES
-('5ecff01fb417b8.42387027', 19, 22, 'Femme', 'Clair', 100, 104, 'Mince', 12, 'Chretient', '');
-
 -- --------------------------------------------------------
 
 --
@@ -110,13 +103,6 @@ CREATE TABLE `description` (
   `morphologie` varchar(50) NOT NULL,
   `commentaire` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Contenu de la table `description`
---
-
-INSERT INTO `description` (`id_description`, `taille`, `teint`, `morphologie`, `commentaire`) VALUES
-('5ecff01fb417b8.42387027', 103, 'Bronze', 'Gros', '');
 
 -- --------------------------------------------------------
 
@@ -156,13 +142,6 @@ CREATE TABLE `individu` (
   `id_ci` varchar(50) DEFAULT NULL,
   `id_critere` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Contenu de la table `individu`
---
-
-INSERT INTO `individu` (`id`, `nom`, `prenoms`, `email`, `telephone`, `password`, `sexe`, `date_naissance`, `profession`, `photo`, `date_ins`, `nationalite`, `religion`, `id_ville`, `id_pays`, `id_description`, `id_ci`, `id_critere`) VALUES
-(1, 'azaiz', 'klauza', 'aziz@gmail.com', ';dsfj', 'soule007', 'Femme', '2020-05-10', 'djlf', NULL, '2020-05-28 06:05:47', 16, 'Musulman', 11, 11, '5ecff01fb417b8.42387027', NULL, '5ecff01fb417b8.42387027');
 
 -- --------------------------------------------------------
 
@@ -5342,7 +5321,7 @@ ALTER TABLE `discussion`
 -- AUTO_INCREMENT pour la table `individu`
 --
 ALTER TABLE `individu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `message`
 --
