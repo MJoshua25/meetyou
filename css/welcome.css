@@ -1,0 +1,149 @@
+body {
+  margin: 0px;
+  font-family:sans-serif;
+  background-color: rgb(244, 241, 229);
+}
+
+.body {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.bg-image{
+  height: 250px;
+  margin-top: 10px;
+  /* border: 1px solid black; */
+  background-image: url(../images/main8.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bg-image .name{
+  /* margin-top: 50px; */
+  margin-left: 41%;
+  margin-right: 45%;
+  height: 30px;
+  width: 15%;
+  background-color: white;
+  /* border: 1px solid black; */
+}
+.name p{
+  margin: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+.photo{
+  margin-top: 10px;
+  margin-left: 20%;
+  height: 150px;
+  width: 150px;
+  border: 2px solid rgb(209, 209, 209);
+  border-radius: 2px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 255, .2);
+}
+.photo-match{
+  margin-top: 20px;
+  margin-left: 12px;
+  height: 130px;
+  width: 130px;
+}
+
+.photo img{
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0;
+}
+.info_match{
+  margin-top: -45px;
+  margin-left: 12px;
+}
+.info_match p{
+  color: white;
+  font-weight: bold;
+  font-size: 19px;
+}
+.main {
+  display: flex;
+  padding:0;
+  /* height: 49vh; */
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 50px;
+  /* border: 2px solid rgb(209, 209, 209); */
+}
+.container{
+  display: flex;
+  padding:0;
+}
+.msg-box {
+  float: right;
+  border-radius: 1px;
+  background: #fff;
+  width: 50%;
+  margin-left: 10px;
+  box-shadow: 2px 2px 15px 3px rgba(0, 0, 255, .2);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+#prof_comp{
+  float: none;
+  margin-left: 0;
+  padding-bottom: 15px;
+  max-height: 260px;
+}
+.consul{
+  margin-top: 20px;
+  text-align: center;
+}
+.consul a{
+  text-decoration: none;
+  color: green;
+}
+.consul a:hover{
+  color: (48, 110, 47);
+}
+
+.header{
+    background: rgb(50, 49, 61);
+    padding:12px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+#messages a{
+  text-decoration: none;
+  color: black;
+}
+#messages a,.container:hover{
+  background-color: rgba(223, 223, 223, 0.7);
+}
+#messages .container{
+  padding-bottom: 10px;
+}
+
+.photo-msg{
+  float: left;
+  margin-left: 12px;
+  height: 70px;
+  width: 70px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 255, .2);
+  border: none;
+}
+.cont-info{
+  margin-left: 10px;
+  padding: 0;
+}
+.cont-info h4{
+  font-weight: bold;
+  margin-bottom:0;
+}
+.cont-info p{
+  margin-top:0;
+  margin-bottom: 10px;
+  font-size: small;
+  color: grey;
+}
+.cont-info span{
+  font-size: 16px;
+}

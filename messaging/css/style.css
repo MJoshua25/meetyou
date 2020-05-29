@@ -1,0 +1,94 @@
+/*/////////////////////
+/////Chat/////
+////////////////////*/
+
+.messages {
+  height: 400px;
+  width: 100%;
+  border-style: solid;
+  border-color: grey;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-width: 1px;
+  overflow: auto;
+  padding-left: 20px;
+}
+
+.messages::-webkit-scrollbar {
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.form-div {
+  display: flex;
+}
+
+.home-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 10px 2px grey;
+    border-radius: 10px;
+    background-color: white;
+    display: grid;
+    padding: 50px;
+}
+
+input[type="text"], .t {
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-width: 1px;
+    margin-right: 5px;
+}
+
+.t {
+  margin-bottom: 10px;
+}
+
+input[type="submit"], .s {
+    background-color: rgb(47, 224, 47);
+    border-style: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="submit"]:hover, .s:hover {
+    box-shadow: 0px 0px 10px 0px rgb(47, 224, 47);
+    text-align: center;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.success {
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 10px;
+  padding: 10px;
+}

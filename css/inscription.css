@@ -1,0 +1,308 @@
+/*/////////////////////
+////inscription.php////
+////////////////////*/
+
+img {
+    height: 120px;
+    width: 120px;
+    border-radius: 400px;
+    float: right;
+    display: inline-block;
+    /* background-color: blue; */
+}
+
+/*/////////////////////
+////slide css////
+////////////////////*/
+
+/*basic reset*/
+* {margin: 15; padding: 0;}
+
+html {
+	height: 100%;
+  margin:0;
+  padding: 0;
+
+}
+header{
+  margin-bottom: -4.5%
+}
+nav{
+  /* background-color: white; */
+}
+nav p{
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  color: rgb(153, 35, 35);
+  margin-left: 20px;
+}
+nav p span{
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  color: rgb(8, 39, 147);
+}
+
+body {
+  font-family: montserrat, arial, verdana;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  height: 100%;
+  margin:0;
+  padding:0;
+  background-size: 100% ;
+  width:100%;
+  color:black;
+}
+body:before {
+    content: "";
+    position: fixed;
+    height: 100%; width: 100%;
+    background: url(../images/main9.jpg);
+    background-size: cover;
+    z-index: -1; /* Keep the background behind the content */
+    -webkit-filter: blur(1px);
+    -webkit-background-size: cover; /* pour Chrome et Safari */
+    -moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisée */
+    }
+
+h1,h4{
+  color: rgba(0, 11, 32, 0.90);
+}
+/*form styles*/
+#msform {
+	width: 60%;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: rgb(244, 241, 229);
+	border: 0 none;
+	border-radius: 0 10px;
+	box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	position: relative;
+}
+.tab{
+  /* position: absolute; */
+    right: -100px;
+    /* width: 100px;
+    height: 100px;
+    background: blue; */
+    -webkit-animation: slide 1s forwards;
+    /* -webkit-animation-delay: 2s; */
+    animation: slide 0.8s forwards;
+    /* animation-delay: 2s; */
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0;}
+}
+
+@keyframes slide {
+    100% { right: 0;}
+}
+
+
+.tab:not(:first-of-type) {
+	display: none;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+/* #msform #parcourir {
+  padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	width: 10%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 8px;
+  margin-left: 86.5%;
+  margin-top: 5px;
+} */
+
+#msform input, #msform textarea, #msform select {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #1a242e;
+	font-size: 16px;
+}
+#msform input[type="checkbox"]{
+  width: 0;
+}
+
+#msform input.invalid {
+  background-color: #ffdddd;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 50%;
+  background-color: rgba(0, 11, 32, 0.90);
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition-property: box-shadow;
+  transition-duration: 300ms;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#msform .action-button:disabled {
+  background-color: grey;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0px 0px 5px 0px rgba(0, 11, 32, 0.90);
+  text-align: center;
+}
+
+/*progressbar*/
+.progress{
+  padding: 0;
+  margin-top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: -20px;
+  /* border: 1px solid black; */
+}
+#progressbar {
+	overflow: hidden;
+  align-content: center;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li{
+	list-style-type: none;
+	color: rgb(8, 39, 147);
+	text-transform: uppercase;
+	font-size: 15px;
+	width: 25%;
+  transform-style: flat;
+	float: left;
+	position: relative;
+  text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 20px;
+  text-align: center;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: rgb(8, 39, 147);
+	color: white;
+}
+/* checkbox centre d'intérêts*/
+.container {
+    max-width: 640px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul.ci {
+    list-style: none;
+    padding: 20px;
+    border: 1px solid black;
+}
+ul.ci li{
+  display: inline;
+}
+ul.ci li label{
+    display: inline-block;
+    border: 1px solid black;
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    font-size: 20px;
+}
+
+ul.ci li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ci li input[type="checkbox"]:checked + label {
+    background-color: rgba(0, 11, 32, 0.90);
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ci li input[type="checkbox"] {
+  display: absolute;
+  position: absolute;
+  opacity: 0;
+}
+
+ul.ci li input[type="checkbox"]:focus + label {
+  border: 2px solid grey;
+}
+
+/* checkbox */
+
+/* taille et age */
+.line{
+  display: flex;
+}
+
+#msform .line select{
+  width: 20%;
+  margin-left: 30px;
+}
+.line label{
+  margin-top: 10px;
+  color: rgb(32, 33, 34);
+}
+
+#msform .line input{
+  width: 20%;
+  margin-left: 30px;
+}
+
+/* taille et age */
