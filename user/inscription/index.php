@@ -98,7 +98,7 @@
                       <select required name="religion">
                           <option disabled selected value="">Religion</option>
                           <option value="Juif">Juif</option>
-                          <option value="Chretient">Chrétient</option>
+                          <option value="Chretien">Chrétien</option>
                           <option value="Musulman">Musulman</option>
                           <option value="Boudhiste">Boudhiste</option>
                           <option value="Inconnue">Autre..</option>
@@ -161,8 +161,8 @@
                       <li><input type="checkbox" name ="ci[]" id="check3" value="Musique" ><label for="check3">Musique</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check4" value="Science"><label for="check4">Science</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check5" value="Mode"><label for="check5">Mode</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check6" value="Cinéma"><label for="check6">Cinéma</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check7" value="Film/Série"><label for="check7">Film/Série</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check6" value="Cinema"><label for="check6">Cinéma</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check7" value="Film/Serie"><label for="check7">Film/Série</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check8" value="Nature"><label for="check8">Nature</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check9" value="Voyage"><label for="check9">Voyage</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check10" value="Plage"><label for="check10">Plage</label></li>
@@ -170,7 +170,7 @@
                       <li><input type="checkbox" name ="ci[]" id="check12" value="Education"><label for="check12">Education</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check13" value="Dance"><label for="check13">Danse</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check14" value="Technologie"><label for="check14">Technologie</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check15" value="Karaoké"><label for="check15">Karaoké</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check15" value="Karaoke"><label for="check15">Karaoké</label></li>
                     </ul>
                 </div>
                 <input type="button" name="previous" class="previous action-button" value="Précédent" id="prevBtn" onclick="nextPrev(-1)" />
