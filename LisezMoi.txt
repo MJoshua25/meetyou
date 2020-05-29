@@ -1,0 +1,36 @@
+Base de donnees (Veuillez importer le nouveau fichier sql pour mieux voir les modifs) :
+
+    Modifications apportées sur la base de données :
+      - Modification de la table "discussion"
+      - Ajout de la table "message"
+      - Modification de la table "pays_residence" en "pays"
+      - Modification de la table "ville" en "villes"
+      - Suppression des champs age et taille dans la table critere
+      - Ajout des champs "age_deb" et "age_fin" de type "int" dans la table "critere"
+      - Ajout des champs "taille_deb" et "taille_fin" de type int dans la table "critere"
+      - Ajout du champs "ci" dans la table "centre_interet" :
+          - ci : type SET('x,y,z,e,r,...')
+      - Modification des types des champs de certaines table :
+          - sexe : type ENUM('Homme','Femme','Inconnu')
+          - teint : type ENUM('Clair','Noir','Bronze','Autre')
+          - morphologie : type ENUM('Mince','Milieu','Gros','Autre')
+
+    Explications :
+      - Le type ENUM permet de definir les valeurs que peut recevoir un champs.Pour toute valeurs
+      en dehors des valeurs passees en parametre, le champs ne sera pas rensseigné.
+
+      - Le type SET permet d'inserer dans un champs toutes les combinaisons possible de l'ensemble
+      des valeurs passees en parametre et accepte aussi les singletons de l'ensemble.
+
+      - Les champs age_deb et age_fin (taille_deb et taille_fin) servent a recuperer respectivement
+      le debut et la fin de l'intervalle d'age (intervalle de taille).
+
+      - Dans la table "discussion", sera creee une discussion avec un id a chaque fois q'un premier message
+      est envoyé entre deux individus.
+
+      - Dans la table "message", y seront enregistré, les differents messages avec un champs "id_discussion"
+      pour indiquer a quelle discussion appartiennent les messages.
+
+NB : Si vous n'etes pas d'accord avec certaines modifs, veuillez contacter mon assistant M. Ano Romaric.
+Dans le cas contraire, je m'en fou de vous !
+Et puis meme si vous n'etes pas d'acccord la je m'en fou meme.

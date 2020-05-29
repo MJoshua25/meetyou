@@ -1,0 +1,248 @@
+html,body{
+  background-color: rgb(244, 241, 229);
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.body{
+  padding-top: 70px;
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.container{
+  display: flex;
+  padding: 0;
+  width: 100%;
+}
+
+#params{
+  position: fixed;
+  height: auto;
+}
+#params a{
+  text-decoration: none;
+  color: black;
+}
+#params a:hover{
+  font-weight: bold;
+  font-size: 18px;
+}
+#parametre{
+  width:800px;
+  margin-bottom: 50px;
+}
+
+#pref{
+  position: fixed;
+  background-color: white;
+  height: auto;
+  padding:20px 30px;
+  padding-bottom: 20px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 255, .2);
+}
+
+.list h4{
+  font-weight: normal;
+}
+.list h3{
+  margin-top: 10px;
+  margin-bottom:5px;
+}
+.list span{
+  color: grey;
+}
+.screen{
+  width: 100%;
+  margin-left: 250px;
+  /* border: 1px solid black; */
+
+}
+
+.content{
+  margin-top: 20px;
+  border-radius: 1.5px;
+  padding: 12px 16px;
+  background-color: white;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 255, .2);
+}
+.content:first-child{
+  margin-top: 0;
+}
+.content .description{
+  margin-top: 50px;
+  border-bottom: 1px solid grey;
+}
+.content .description:first-child{
+  margin-top: 0;
+}
+
+.profil{
+  width: 90%;
+  padding: 0;
+  border-radius: 3px;
+}
+.photo{
+  height: 230px;
+  width: 230px;
+}
+.photo.taux{
+  height: 150px;
+  width: 200px;
+}
+
+.photo img{
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0;
+}
+.info_match{
+  margin-left: 15px;
+}
+.info_match span{
+  font-weight: normal;
+}
+.info_match p{
+  font-size: 18px;
+}
+.btn{
+  margin-top: 30px;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(56, 165, 97);
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px 3px rgba(0, 0, 255, .2);
+}
+.btn p{
+  float: right;
+  margin: 0;
+  padding-top: 5px;
+  padding-left:5px;
+}
+
+
+.description h2{
+  text-align: left;
+}
+.line{
+  margin-top: 10px;
+  /* border: 1px solid black; */
+}
+.line label{
+  color: rgb(32, 33, 34);
+  max-width: 10px;
+}
+.label-10{
+  margin-left: 10px;
+}
+.line input{
+  border: 1px solid black;
+  margin-left: 10px;
+}
+#param-connexion input[type ="text"],input[type ="password"]{
+  border-radius: 3px;
+  padding: 10px;
+  border: 1px solid rgb(175, 173, 166);
+  width: 50%;
+  font-size: 17px;
+}
+#param-connexion input[type ="checkbox"]:checked{
+  background-color: rgb(0, 85, 52);
+}
+input[type = "submit"],input[type = "reset"]{
+  float: right;
+  clear: both;
+  margin-left: 0;
+  border-radius: 2px;
+  padding: 10px;
+  border: 1px solid rgb(175, 173, 166);
+  background-color: rgb(56, 165, 97);
+  font-size: 17px;
+}
+input[type = "submit"]:disabled,input[type = "reset"]:disabled{
+  background-color: rgb(194, 192, 184);
+}
+
+#preferences select{
+  border-radius: 3px;
+  padding: 10px;
+  border: 1px solid rgb(175, 173, 166);
+  width: 100px;
+  background-color: white;
+  font-size: 17px;
+}
+#preferences select[name ="origine"],#preferences select[name ="religion"]{
+  width: 150px;
+  font-size: 14px;
+}
+
+#preferences input[name ="taille_inf"], input[name ="taille_sup"]{
+  border-radius: 3px;
+  padding: 10px;
+  border: 1px solid rgb(175, 173, 166);
+  width: 100px;
+  font-size: 17px;
+}
+#ori{
+  margin-top: 0;
+}
+#preferences input[type ="submit"],input[type="reset"]{
+  float: none;
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+#preferences input[type ="reset"]{
+  margin-top: 8px;
+  background-color: red;
+  color: white;
+  display: none;
+}
+/* icons */
+
+#pref button{
+    width: 100%;
+    background-color: #0eb256;
+    border-style: none;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+    box-shadow: 0px 3px 10px 0px grey ;
+}
+.red{
+  background-color:rgb(183, 0, 63);
+}
+.blue{
+  background-color: rgb(96, 130, 239);
+  margin-left: 15px;
+}
+.ic-msg:before{
+  content:url(../images/icons/icons8-bavarder-25.png);
+}
+.ic-profil:before{
+  content:url(../images/icons/icons8-profil-25.png);
+}
+.ic-job:before{
+  content:url(../images/icons/icons8-affaire-25.png);
+}
+.ic-lieu:before{
+  content:url(../images/icons/icons8-lieu-25.png);
+}
+.ic-job{
+  margin-top: -5px;
+  float: left;
+}
+.ic-lieu{
+  margin-top: -5px;
+  float: left;
+}
+
+
+/* icons */
