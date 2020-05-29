@@ -12,18 +12,11 @@ function nextPrev(n) {
   // Cette fonction affiche le fieldset correct
   var x = document.getElementsByClassName("tab");
   // Si le formulaire actuel est mal rempli:
-  // if (n ==1 && !validateForm()) return false; //si tu veux eviter de remplir tout les champs met le if en commentaire
+  if (n ==1 && !validateForm()) return false; //si tu veux eviter de remplir tout les champs met le if en commentaire
   // On cache le fieldset courant:
   x[currentTab].style.display = "none";
   currentTab += n;
   showTab(currentTab);
-}
-
-function submit() {
-  if (validateForm()) {
-    var btn = document.getElementById('submit');
-    btn.disabled = false;
-  }
 }
 
 function validateForm() {
@@ -34,6 +27,7 @@ function validateForm() {
   z = x[currentTab].getElementsByTagName("select");
   w = x[currentTab].querySelectorAll('input[type="checkbox"]');
   l = x[currentTab].querySelectorAll('#part4 select');
+  tel = document.getElementById('tel');
 
   for (i = 0; i < y.length ; i++) {
     if (y[i].value == "") {
@@ -44,7 +38,6 @@ function validateForm() {
   }
   for (i = 0; i < z.length ; i++) {
     if (z[i].value == "") {
-      // on change la classe pour que les input se mettent en rouge si un champ est vide
       alert("veuillez remplir tous les champs");
       valid = false;
       break;
@@ -52,11 +45,33 @@ function validateForm() {
   }
   for (i = 0; i < l.length ; i++) {
     if (l[i].value == "") {
-      // on change la classe pour que les input se mettent en rouge si un champ est vide
       alert("veuillez remplir tous les champs");
       valid = false;
       break;
     }
+  }
+  function tel_ok(){
+    var a =0;
+    if(tel.value != ""){
+      for (i = 0; i < tel.value.length;i++) {
+        if ((tel.value[i] in ['0','1','2','3','4','5','6','7','8','9'])==false) {
+          tel.className += "invalid";
+          errors("Le numéro de telephone ne dois contenir que des chiffres");
+          display = true;
+          valid = false;
+          break;
+        }
+        a++;
+      }
+    }
+    if (a ==tel.value.length){
+      return true;
+    }
+  }
+
+  if(tel.value !="" && tel_ok() && tel.value.length <=7){
+      errors("Le numéro de telephone dois contenir au moins 8 chiffres");
+      valid = false;
   }
 
   if (w.length !=0) {
@@ -71,12 +86,18 @@ function validateForm() {
       valid = false;
     }
   }
-  if(valid){
-    document.getElementById('submit').disabled = false;
-  }
-
+  //
+  // if(valid){
+  //   document.getElementById('submit').disabled = false;
+  // }
 
   return valid; // return the valid status
+}
+
+function errors(message) {
+  error = document.getElementById('error');
+  error.style.display = "block";
+  error.innerHTML = message;
 }
 
 function etapes(n) {

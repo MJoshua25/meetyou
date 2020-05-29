@@ -104,7 +104,8 @@
                           <option value="Inconnue">Autre..</option>
                       </select>
 
-                      <input  type="tel" oninput="this.className = ''"  name="telephone" id="" placeholder="Telephone">
+                      <input  type="tel" oninput="this.className = ''"  name="telephone" id="tel" placeholder="Telephone">
+                      <p id="error">error</p>
 
                       <select onchange="getVilles(document.getElementById('pays').value);" required id="pays" name="pays">
                         <option disabled selected value="">Pays de residence</option>

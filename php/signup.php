@@ -49,7 +49,7 @@
     $nationaliteMatch = $_POST['nationaliteMatch'];
     $religionMatch = $_POST['religionMatch'];
     $commentaireMatch = $_POST['commentaireMatch'];
-
+    $ci = implode(',',$_POST['ci']);
     if ($teintMatch == 'null') {
       $teintMatch = null;
     }
@@ -82,10 +82,14 @@
     $teintMatch,$tailleMatch_deb,$tailleMatch_fin,$morphologieMatch,
     $nationaliteMatch,$religionMatch,$commentaireMatch]);
 
+    //Insertion dans la table centre_interet
+    $req = $bdd->prepare("INSERT INTO centre_interet VALUES(?,?)");
+    $req->execute([$id,"'".$ci."'"]);
+
     // Insertion dans la table individu
     $req = $bdd->prepare("INSERT INTO individu VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
     $req->execute([null,$nom,$prenoms,$email,$telephone,$password,$sexe,$date_naissance,
-    $profession,null,date("Y-m-d H:i:s"),$nationalite,$religion,$ville,$pays,$id,null,$id]);
+    $profession,null,date("Y-m-d H:i:s"),$nationalite,$religion,$ville,$pays,$id,$id,$id]);
 
     $req -> closeCursor();
 

@@ -138,6 +138,10 @@ input[type="password"] {
     border-width: 1px;
 }
 
+input[type="submit"]:disabled{
+  background-color: grey;
+}
+
 .regform2 input[type="password"] {
   margin-bottom: 30px;
 }

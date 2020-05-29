@@ -62,7 +62,7 @@
           <?php
         } ?>
 
-        <div class="regform1">
+        <div class="regform1" id="regform1">
           <form name="reg" action="user/inscription/" method="post">
             <fieldset>
               <legend id="headText">Inscrivez vous !👌🏽</legend>
@@ -76,11 +76,15 @@
                 <legend>Mot de passe</legend>
                 <input type="password" required name="pwd_reg" value="" placeholder="password">
               </fieldset>
+              <fieldset class="pwd">
+                <legend>Confirmer le mot de passe</legend>
+                <input type="password" required name="conf_pwd_reg" value="" placeholder="Confirmation.." onchange="confim();">
+              </fieldset>
               <input type="checkbox" required name="conditions" value="J'accepte les termes et conditions">
               <label for="conditions">J'accepte les termes et les conditions d'utilisation du site</label>
             </fieldset>
 
-            <input type="submit" name="valider" value="C'est parti !!!">
+            <input type="submit" name="valider" id = "valider" value="C'est parti!!!!">
           </form>
         </div>
 
@@ -131,6 +135,26 @@
     <!-- footer -->
     <?php include 'stuffs/footer.php'; ?>
     <!-- footer -->
+    <script type="text/javascript">
+    
+      var valid = false;
+      function confim(){
+        var x = document.querySelectorAll('#regform1 input[type="password"]');
+        console.log(x.length);
+        if (x[0].value != x[1].value) {
+          if(x[1].value ==""){
+            console.log("nothing");
+          }
+          else {
+            alert("Le deux champs ne correspondent pas veuillez recommencer");
+            document.getElementById('valider').disabled = true;
+          }
+        }else {
+          document.getElementById('valider').disabled = false;
+        }
+      }
+
+    </script>
 
   </body>
 </html>
