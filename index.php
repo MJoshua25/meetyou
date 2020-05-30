@@ -74,13 +74,14 @@
 
               <fieldset class="pwd">
                 <legend>Mot de passe</legend>
-                <input type="password" required name="pwd_reg" value="" placeholder="password">
+                <input type="password" required name="pwd_reg" value="" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+  title="Doit contenir au moins un chiffre,une lettre majuscule,une lettre miniscule, et au moins 6 caractères">
               </fieldset>
               <fieldset class="pwd">
                 <legend>Confirmer le mot de passe</legend>
                 <input type="password" required name="conf_pwd_reg" value="" placeholder="Confirmation.." onchange="confim();">
               </fieldset>
-              <input type="checkbox" required name="conditions" value="J'accepte les termes et conditions">
+              <input type="checkbox" required id="conditions" value="">
               <label for="conditions">J'accepte les termes et les conditions d'utilisation du site</label>
             </fieldset>
 
@@ -136,22 +137,21 @@
     <?php include 'stuffs/footer.php'; ?>
     <!-- footer -->
     <script type="text/javascript">
-    
+
       var valid = false;
       function confim(){
+        var valid = true
         var x = document.querySelectorAll('#regform1 input[type="password"]');
-        console.log(x.length);
-        if (x[0].value != x[1].value) {
-          if(x[1].value ==""){
-            console.log("nothing");
-          }
-          else {
+        while ((x[0].value != x[1].value) && x[1].value !="") {
             alert("Le deux champs ne correspondent pas veuillez recommencer");
+            valid = false;
             document.getElementById('valider').disabled = true;
-          }
-        }else {
+            break;
+        }
+        if (valid) {
           document.getElementById('valider').disabled = false;
         }
+
       }
 
     </script>
