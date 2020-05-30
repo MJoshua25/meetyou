@@ -22,6 +22,9 @@
 			$_SESSION['user'] = new Individu($data);
 			$_SESSION['user']->destroyPassword();
 
+			$req = $bdd->prepare("INSERT INTO connexion VALUES(?,?,?)");
+			$req->execute([null,$_SESSION['user']->id,date("Y-m-d H:i:s")]);
+
 			header('location: ../user/dashboard/'); // redirection to the user dashboard
 		}
 		else

@@ -156,21 +156,28 @@
                   <h4>Veuillez choisir vos centres d'intérêt dans la liste ci dessous(5choix ou plus)</h4>
                   <div class="container">
                     <ul class="ci">
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Sport"><label for="check1">Sport</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check2" value="Lecture" ><label for="check2">Lecture</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check3" value="Musique" ><label for="check3">Musique</label></li>
+                      <?php include 'interets.php'; ?>
+                      <!-- <li><input type="checkbox" name ="ci[]" id="check1" value="Sport"><label for="check1">Sport</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check2" value="Lecture"><label for="check2">Lecture</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check3" value="Musique"><label for="check3">Musique</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check4" value="Science"><label for="check4">Science</label></li>
                       <li><input type="checkbox" name ="ci[]" id="check5" value="Mode"><label for="check5">Mode</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check6" value="Cinema"><label for="check6">Cinéma</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check7" value="Film/Serie"><label for="check7">Film/Série</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check8" value="Nature"><label for="check8">Nature</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check9" value="Voyage"><label for="check9">Voyage</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check10" value="Plage"><label for="check10">Plage</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check11" value="Decouverte"><label for="check11">Découverte</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check12" value="Education"><label for="check12">Education</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check13" value="Dance"><label for="check13">Danse</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check14" value="Technologie"><label for="check14">Technologie</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check15" value="Karaoke"><label for="check15">Karaoké</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check6" value="Cinema/Animation"><label for="check6">Cinema/Animation</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check7" value="Nature"><label for="check7">Nature</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Voyage"><label for="check1">Voyage</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Plage"><label for="check1">Plage</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Decouverte"><label for="check1">Decouverte</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Education"><label for="check1">Education</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Danse"><label for="check1">Danse</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Technologie"><label for="check1">Technologie</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Karaoke"><label for="check1">Karaoke</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Manga/Animes"><label for="check1">Manga/Animes</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Culture"><label for="check1">Culture</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Histoire"><label for="check1">Histoire</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Politique"><label for="check1">Politique</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Religion"><label for="check1">Religion</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Pornographie"><label for="check1">Pornographie</label></li>
+                      <li><input type="checkbox" name ="ci[]" id="check1" value="Divers"><label for="check1">Divers</label></li> -->
                     </ul>
                 </div>
                 <input type="button" name="previous" class="previous action-button" value="Précédent" id="prevBtn" onclick="nextPrev(-1)" />

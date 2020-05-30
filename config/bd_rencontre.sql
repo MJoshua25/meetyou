@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 29 Mai 2020 à 16:51
+-- Généré le :  Sam 30 Mai 2020 à 20:53
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.4.6
 
@@ -55,8 +55,15 @@ CREATE TABLE `administrer` (
 
 CREATE TABLE `centre_interet` (
   `id_ci` varchar(50) NOT NULL,
-  `ci` set('Sport','Lecture','Musique','Science','Mode','Cinema/Animation','Nature','Voyage','Plage','Decouverte','Education','Danse','Technologie','Karaoke','Manga/Animes','Culture','Politique','Religion','Pornographie','Divers') NOT NULL
+  `ci` set('Sport','Lecture','Musique','Science','Mode','Cinema/Animation','Nature','Voyage','Plage','Decouverte','Education','Danse','Technologie','Karaoke','Manga/Animes','Culture','Politique','Religion','Pornographie','Divers','Histoire') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `centre_interet`
+--
+
+INSERT INTO `centre_interet` (`id_ci`, `ci`) VALUES
+('5ed2b6cc6d4ad0.33182483', 'Musique,Science,Cinema/Animation,Education,Technologie,Manga/Animes,Culture,Religion,Histoire');
 
 -- --------------------------------------------------------
 
@@ -90,6 +97,13 @@ CREATE TABLE `critere` (
   `commentaire` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `critere`
+--
+
+INSERT INTO `critere` (`id_critere`, `age_deb`, `age_fin`, `sexe`, `teint`, `taille_deb`, `taille_fin`, `morphologie`, `nationalite`, `religion`, `commentaire`) VALUES
+('5ed2b6cc6d4ad0.33182483', 18, 21, 'Femme', NULL, 160, 180, NULL, NULL, NULL, '');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +117,13 @@ CREATE TABLE `description` (
   `morphologie` varchar(50) NOT NULL,
   `commentaire` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `description`
+--
+
+INSERT INTO `description` (`id_description`, `taille`, `teint`, `morphologie`, `commentaire`) VALUES
+('5ed2b6cc6d4ad0.33182483', 180, 'Noir', 'Mince', '');
 
 -- --------------------------------------------------------
 
@@ -142,6 +163,51 @@ CREATE TABLE `individu` (
   `id_ci` varchar(50) DEFAULT NULL,
   `id_critere` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `individu`
+--
+
+INSERT INTO `individu` (`id`, `nom`, `prenoms`, `email`, `telephone`, `password`, `sexe`, `date_naissance`, `profession`, `photo`, `date_ins`, `nationalite`, `religion`, `id_ville`, `id_pays`, `id_description`, `id_ci`, `id_critere`) VALUES
+(5, 'Soule', 'ArÃ©mou', 'aziz@gmail.com', '51179350', 'soule007', 'Homme', '1999-10-07', 'Etudiant', NULL, '2020-05-30 20:41:00', 2, 'Musulman', 916, 5, '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `liste_centre_interet`
+--
+
+CREATE TABLE `liste_centre_interet` (
+  `id_ci` int(11) NOT NULL,
+  `ci` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `liste_centre_interet`
+--
+
+INSERT INTO `liste_centre_interet` (`id_ci`, `ci`) VALUES
+(1, 'Sport'),
+(2, 'Lecture'),
+(3, 'Musique'),
+(4, 'Science'),
+(5, 'Mode'),
+(6, 'Cinema/Animation'),
+(7, 'Nature'),
+(8, 'Voyage'),
+(9, 'Plage'),
+(10, 'Decouverte'),
+(11, 'Education'),
+(12, 'Danse'),
+(13, 'Technologie'),
+(14, 'Karaoke'),
+(15, 'Manga/Animes'),
+(16, 'Culture'),
+(17, 'Histoire'),
+(18, 'Politique'),
+(19, 'Religion'),
+(20, 'Pornographie'),
+(21, 'Divers');
 
 -- --------------------------------------------------------
 
@@ -5270,6 +5336,12 @@ ALTER TABLE `individu`
   ADD KEY `nationalite` (`nationalite`);
 
 --
+-- Index pour la table `liste_centre_interet`
+--
+ALTER TABLE `liste_centre_interet`
+  ADD PRIMARY KEY (`id_ci`);
+
+--
 -- Index pour la table `message`
 --
 ALTER TABLE `message`
@@ -5321,7 +5393,12 @@ ALTER TABLE `discussion`
 -- AUTO_INCREMENT pour la table `individu`
 --
 ALTER TABLE `individu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `liste_centre_interet`
+--
+ALTER TABLE `liste_centre_interet`
+  MODIFY `id_ci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT pour la table `message`
 --

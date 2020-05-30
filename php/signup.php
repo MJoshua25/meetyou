@@ -9,7 +9,7 @@
     isset($_POST['nom']) && isset($_POST['prenoms']) && $_SESSION['email'] && $_SESSION['password'] && isset($_POST['date_naissance']) &&
     isset($_POST['nationalite']) && isset($_POST['sexe']) && $_POST['profession'] && $_POST['religion'] && isset($_POST['telephone']) &&
     isset($_POST['pays']) && isset($_POST['ville']) && isset($_POST['taille']) && isset($_POST['teint']) && isset($_POST['morphologie']) &&
-    isset($_POST['commentaire']) && isset($_POST['sexeMatch']) && isset($_POST['ageMatch_deb']) && isset($_POST['ageMatch_fin']) &&
+    isset($_POST['commentaire']) && isset($_POST['ci']) && isset($_POST['sexeMatch']) && isset($_POST['ageMatch_deb']) && isset($_POST['ageMatch_fin']) &&
     isset($_POST['tailleMatch_deb']) && isset($_POST['tailleMatch_fin']) && isset($_POST['teintMatch']) && isset($_POST['morphologieMatch']) &&
     isset($_POST['nationaliteMatch']) && isset($_POST['commentaireMatch'])
   )
@@ -50,6 +50,8 @@
     $religionMatch = $_POST['religionMatch'];
     $commentaireMatch = $_POST['commentaireMatch'];
     $ci = implode(',',$_POST['ci']);
+
+    // Verifier si certains criteres n'ont pas d'importance pour le user
     if ($teintMatch == 'null') {
       $teintMatch = null;
     }
@@ -66,7 +68,7 @@
       $religionMatch = null;
     }
 
-    // Generation d'un id pour les champs id_description et id_critere de la table individu
+    // Generation d'un id pour les champs id_description,id_ci et id_critere de la table individu
     $id = uniqid('',true);
 
     // Connexion à la base de donnees
@@ -84,7 +86,7 @@
 
     //Insertion dans la table centre_interet
     $req = $bdd->prepare("INSERT INTO centre_interet VALUES(?,?)");
-    $req->execute([$id,"'".$ci."'"]);
+    $req->execute([$id,$ci]);
 
     // Insertion dans la table individu
     $req = $bdd->prepare("INSERT INTO individu VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
