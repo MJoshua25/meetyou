@@ -1,6 +1,7 @@
 var currentTab = 0; // currentTab est mis a  (0)
 showTab(currentTab);
 
+
 function showTab(n) {
   // on affiche le fieldset correpondant ici
   var x = document.getElementsByClassName("tab");
@@ -112,3 +113,53 @@ function etapes(n) {
   }
 
 }
+
+// select (pays et profil recherché)
+
+setvalue("tailleUser",100,200);
+setvalue("ageMatch_inf",18,80);
+setvalue("tailleMatch_inf",100,200);
+
+
+function setvalue(id,n,m){
+  var select = document.getElementById(id);
+  for(var i = n; i <= m; i++) {
+    var el = document.createElement("option");
+    el.textContent = i;
+    el.value = i;
+    select.appendChild(el);
+  }
+}
+
+function sendvalue(id,id2){
+  var select1 = document.getElementById(id); //Le premier select
+  var select2 = document.getElementById(id2);
+  var opts = select2.getElementsByTagName("option");
+  while(opts[1]) {
+      select2.removeChild(opts[1]);
+  }
+  var len = select1.options.length;
+  var n = select1.value;//on recupère la valeur courante du select
+  var m = select1.options[len-1].value;//on recupère la valeur du dernier élément du premier select
+  for(var i = n; i <= m; i++) {
+    var el = document.createElement("option");
+    el.textContent = i;
+    el.value = i;
+    select2.appendChild(el);
+    }
+  }
+
+  function getVilles(pays){
+     var villes = document.getElementById("ville");
+     var x = villes.getElementsByTagName("option");
+     for (var i = 1; i < x.length; i++) {
+       if(x[i].className == pays){
+         x[i].hidden = false;
+       }else {
+         x[i].hidden = true;
+       }
+     }
+
+
+
+  }

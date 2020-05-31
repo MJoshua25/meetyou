@@ -1,11 +1,15 @@
 TACHES A REALISER :
+
 -Mot de passe contrôle de saisie ---> ok
--Combobox select profil recherchés
--Fonction getMatch()
--Villes et pays (cacher les villes affichées précédemment)
+-Combobox select profil recherchés ---> ok
+-Fonction getMatch()---> en cours
+-Villes et pays (cacher les villes affichées précédemment)--->ok
 -Ajouter bouton dans la partie profil
--
+-Partie centre d'intérets afficher les ci (disabled)
+
+
 (A gerer plus tard )
+
 -Statut de la personne personne connectée
 -Donner une tâche a un petit pour renseigner la base de donnée de PAYSVILLE
 -Gerer la partie administrateur

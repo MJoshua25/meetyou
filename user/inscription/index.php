@@ -107,7 +107,7 @@
                       <input  type="tel" oninput="this.className = ''"  name="telephone" id="tel" placeholder="Telephone">
                       <p id="error">error</p>
 
-                      <select onchange="getVilles(document.getElementById('pays').value);" required id="pays" name="pays">
+                      <select onchange="getVilles(this.value);" required id="pays" name="pays">
                         <option disabled selected value="">Pays de residence</option>
                         <?php include 'pays.php'; ?>
                       </select>
@@ -204,7 +204,7 @@
                       <div class="line">
                         <!-- Age -->
                         <label>Tranche d'age recherchée :</label>
-                        <select required id="ageMatch_inf" name="ageMatch_deb">
+                        <select required id="ageMatch_inf" name="ageMatch_deb" onchange="sendvalue('ageMatch_inf','ageMatch_sup')">
                           <option value="" selected disabled>0</option>
                         </select>
                         <label for="ageMatch_sup">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspà</label>
@@ -215,7 +215,7 @@
                       <!-- Taille -->
                       <div class="line">
                         <label>Taille (cm) comprise entre :</label>
-                        <select required id="tailleMatch_inf" name="tailleMatch_deb">
+                        <select required id="tailleMatch_inf" name="tailleMatch_deb" onchange="sendvalue('tailleMatch_inf','tailleMatch_sup')">
                             <option value="" selected disabled>0</option>
                         </select>
                         <label for="tailleMatch_sup">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspet</label>
@@ -268,41 +268,27 @@
 
               </form>
               <script type="text/javascript">
-                setvalue("tailleUser",100,200);
-                setvalue("ageMatch_inf",18,60);
-                setvalue("ageMatch_sup",18,60);
-                setvalue("tailleMatch_inf",100,200);
-                setvalue("tailleMatch_sup",100,200);
-                function setvalue(id,n,m){
-                  var select = document.getElementById(id);
-                  for(var i = n; i <= m; i++) {
-                    var el = document.createElement("option");
-                    el.textContent = i;
-                    el.value = i;
-                    select.appendChild(el);
-                  }
-                }
 
-                var options = [];
-
-                function getVilles(className) {
-                  if (options.length != 0) {
-                    for (var opt in options) {
-                      if(document.getElementById(opt) != null) {
-                        document.getElementById(opt).hidden = true;
-                      }
-                    }
-                  }
-                  var opts = document.getElementsByClassName(className);
-                  options = opts;
-                  if (opts.length != 0) {
-                    for (var opt in opts) {
-                      if(document.getElementById(opt) != null) {
-                        document.getElementById(opt).hidden = false;
-                      }
-                    }
-                  }
-                }
+                // var options = [];
+                //
+                // function getVilles(className) {
+                //   if (options.length != 0) {
+                //     for (var opt in options) {
+                //       if(document.getElementById(opt).className != className) {
+                //         document.getElementById(opt).hidden = true;
+                //       }
+                //     }
+                //   }
+                //   var opts = document.getElementsByClassName(className);
+                //   options = opts;
+                //   if (opts.length != 0) {
+                //     for (var opt in opts) {
+                //       if(document.getElementById(opt) != null) {
+                //         document.getElementById(opt).hidden = false;
+                //       }
+                //     }
+                //   }
+                // }
 
               </script>
               <script type="text/javascript" src="../../js/inscription.js"></script>
