@@ -82,8 +82,10 @@
               </div>
               <!-- Metier et Ville -->
               <div class="pp-title">
+                <div class="ic-job"></div>
                 <p><?php echo $user->profession; ?></p>
-                <p><?php echo $ville['nom_ville']; ?></p>
+                <div class="ic-lieu"></div>
+                <p><?php echo $nationalite['nom_pays']; ?>&nbsp(<?php echo $ville['nom_ville']; ?>)</p>
               </div>
 
             </div>
