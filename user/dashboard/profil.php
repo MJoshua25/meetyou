@@ -245,7 +245,7 @@
               <div class="description">
                 <h2>Centres d'intérêt</h2>
               </div>
-              <div class="container">
+              <!-- <div class="container">
 
                 <fieldset id="loisirs" disabled>
                   <legend>Mes loisirs sont:
@@ -269,7 +269,12 @@
                   <textarea name="sport" rows="5" cols="80" >Vous n'avez pas encore ajouté vos centres d'intérêt.</textarea>
                 </fieldset>
 
-              </div>
+              </div> -->
+              <div class="container_ci">
+                <ul class="ci">
+                  <?php include '../inscription/interets.php'; ?>
+                </ul>
+            </div>
             </div>
 
           </div>

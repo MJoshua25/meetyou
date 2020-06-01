@@ -276,3 +276,58 @@ textarea{
   padding-right: 10px;
   padding-left: 10px;
 }
+
+/* checkbox centre d'intérêts*/
+.container_ci {
+    text-align: center;
+    padding-right: 0;
+}
+
+ul.ci {
+    list-style: none;
+}
+ul.ci li{
+  /* border: 1px solid black; */
+  margin: 0 5px;
+  padding: 0;
+  display: inline;
+}
+ul.ci li label{
+    display: inline-block;
+    border: 1px solid black;
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    font-size: 20px;
+}
+
+ul.ci li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ci li input[type="checkbox"]:checked + label {
+    background-color: rgba(0, 11, 32, 0.90);
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ci li input[type="checkbox"] {
+  display: absolute;
+  position: absolute;
+  opacity: 0;
+}
+
+ul.ci li input[type="checkbox"]:focus + label {
+  border: 2px solid grey;
+}
+
+/* checkbox */
