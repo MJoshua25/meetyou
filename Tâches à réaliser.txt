@@ -5,7 +5,7 @@ TACHES A REALISER :
 -Fonction getMatch()---> en cours
 -Villes et pays (cacher les villes affichées précédemment)--->ok
 -Ajouter bouton dans la partie profil
--Partie centre d'intérets afficher les ci (disabled)
+-Partie centre d'intérets afficher les ci (disabled) --> en cours
 
 
 (A gerer plus tard )
