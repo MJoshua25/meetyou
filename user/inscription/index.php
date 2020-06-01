@@ -79,7 +79,7 @@
 
                       <input  type="text" oninput="this.className = ''"  name="prenoms" id="" placeholder="Prenoms">
 
-                      <input  type="date" oninput="this.className = ''"  name="date_naissance" id="" placeholder="Date de naissance">
+                      <input  type="date" oninput="this.className = ''"  name="date_naissance" id="" placeholder="Date de naissance" min='1940-01-01' max='2002-12-31'>
 
                       <select class="" name="nationalite">
                         <option disabled selected value="">Nationalité</option>
@@ -157,27 +157,6 @@
                   <div class="container">
                     <ul class="ci">
                       <?php include 'interets.php'; ?>
-                      <!-- <li><input type="checkbox" name ="ci[]" id="check1" value="Sport"><label for="check1">Sport</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check2" value="Lecture"><label for="check2">Lecture</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check3" value="Musique"><label for="check3">Musique</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check4" value="Science"><label for="check4">Science</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check5" value="Mode"><label for="check5">Mode</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check6" value="Cinema/Animation"><label for="check6">Cinema/Animation</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check7" value="Nature"><label for="check7">Nature</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Voyage"><label for="check1">Voyage</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Plage"><label for="check1">Plage</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Decouverte"><label for="check1">Decouverte</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Education"><label for="check1">Education</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Danse"><label for="check1">Danse</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Technologie"><label for="check1">Technologie</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Karaoke"><label for="check1">Karaoke</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Manga/Animes"><label for="check1">Manga/Animes</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Culture"><label for="check1">Culture</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Histoire"><label for="check1">Histoire</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Politique"><label for="check1">Politique</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Religion"><label for="check1">Religion</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Pornographie"><label for="check1">Pornographie</label></li>
-                      <li><input type="checkbox" name ="ci[]" id="check1" value="Divers"><label for="check1">Divers</label></li> -->
                     </ul>
                 </div>
                 <input type="button" name="previous" class="previous action-button" value="Précédent" id="prevBtn" onclick="nextPrev(-1)" />

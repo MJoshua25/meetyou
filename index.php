@@ -65,7 +65,7 @@
         <div class="regform1" id="regform1">
           <form name="reg" action="user/inscription/" method="post">
             <fieldset>
-              <legend id="headText">Inscrivez vous !👌🏽</legend>
+              <legend id="headText">Inscrivez vous 💞 !</legend>
 
               <fieldset class="mail">
                 <legend>Adresse Mail</legend>
@@ -85,7 +85,7 @@
               <label for="conditions">J'accepte les termes et les conditions d'utilisation du site</label>
             </fieldset>
 
-            <input type="submit" name="valider" id = "valider" value="C'est parti!!!!">
+            <input type="submit" name="valider" id = "valider" value="C'est parti !!!">
           </form>
         </div>
 

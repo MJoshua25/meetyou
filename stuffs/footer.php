@@ -4,7 +4,7 @@
     <center>
       <ul>
         <li> <a href="#">Conditions et règles de confidentialité</a></li>
-        <li> @Copyright 👋YouMeetdevs</li>
+        <li style="color: rgb(223, 67, 67);"> @Copyright 👋YouMeetdevs</li>
         <li> <a href="#">Nous contacter ?</a></li>
       </ul>
       <p></p>

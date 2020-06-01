@@ -1,6 +1,7 @@
+@import "font.css";
+
 body {
   margin: 0px;
-  font-family:sans-serif;
   background-color: rgb(244, 241, 229);
 }
 

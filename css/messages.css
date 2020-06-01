@@ -1,3 +1,5 @@
+@import "font.css";
+
 header{
     position: fixed;
     overflow: hidden;
@@ -29,7 +31,6 @@ header{
 
 
 body {
-    font-family: helvetica, sans-serif;
     margin: 0px;
 }
 
