@@ -44,12 +44,10 @@ body {
 }
 
 .discussions {
-  float: left;
   border-radius: 1px;
   width: 500px;
   box-shadow: 1px 1px 10px 2px grey;
   box-sizing: border-box;
-  position: relative;
   padding: 10px;
 }
 
@@ -111,7 +109,6 @@ body {
   background-color: rgb(227, 227, 227);
 }
 .msg-box {
-  float: right;
   border-radius: 1px;
   background: #fff;
   width: 100%;
@@ -133,9 +130,13 @@ body {
     font-weight: bold;
 }
 
+.text {
+  transform: rotate(180deg);
+  direction: ltr;
+}
 
 .chat{
-    background: #72b8ff;
+    background: #00D025;
     border-radius: 3px;
     display: inline-block;
     padding: 10px;
@@ -145,14 +146,13 @@ body {
     box-shadow: 1px 1px 2px rgba(0,0,0,.3);
     margin: 5px;
     position: relative;
-    max-width: 200px;
+
 }
 .chat.u1{
     float: left;
     clear: both;
     border-top-left-radius: 0px;
     padding: 15px;
-
 }
 .chat.u1:before{
     content: "";
@@ -160,7 +160,7 @@ body {
     height: 0px;
     display: block;
     border-left: 5px solid transparent;
-    border-right: 5px solid #72b8ff;
+    border-right: 5px solid #00D025;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     position: absolute;
@@ -171,7 +171,7 @@ body {
     float: right;
     clear: both;
     border-top-right-radius: 0px;
-    background: #00D025;
+    background: #72b8ff;
     padding: 15px;
 }
 .chat.u2:before{
@@ -179,7 +179,7 @@ body {
     width: 0px;
     height: 0px;
     display: block;
-    border-left: 5px solid #00D025;
+    border-left: 5px solid #72b8ff;
     border-right: 5px solid transparent;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
@@ -230,7 +230,8 @@ body {
   margin: auto;
 }
 
-.message{
+.messages{
+  transform: rotate(180deg);
   height: 69vh;
   width: 100%;
   background-color: #fff;
@@ -239,8 +240,18 @@ body {
   box-sizing: border-box;
   overflow: scroll;
   overflow-x: hidden;
-  /* transform: rotate(180deg); */
+  direction: rtl;
 }
+
+.messages::-webkit-scrollbar {
+  border-radius: 0px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: #393939;
+  border-radius: 0px;
+}
+
 .sender1 p{
   float: left;
   clear: both;
@@ -248,6 +259,8 @@ body {
   margin: 0;
   font-size: 11px;
   color: grey;
+  transform: rotate(180deg);
+  margin-top: 30px;
 }
 .sender2 p{
   float: right;
@@ -256,4 +269,6 @@ body {
   margin: 0;
   font-size: 11px;
   color: grey;
+  transform: rotate(180deg);
+  margin-top: 30px;
 }
