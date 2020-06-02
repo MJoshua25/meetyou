@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script type="text/javascript" src="jquery/jquery.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/get.js"></script>
+    <script type="text/javascript" src="js/send.js"></script>
   </head>
   <body>
 
@@ -20,6 +20,7 @@
 
       <form class="sender" method="post">
         <div class="form-div">
+          <input type="text" name="id_receiver" value="6" hidden>
           <input type="text" name="message" class="mes" placeholder="Entrez votre message">
           <input type="submit" value="envoyer">
         </div>

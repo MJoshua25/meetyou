@@ -1,296 +1,147 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Messages</title>
-  <link rel="stylesheet" href="../../css/messages.css">
+<?php
 
-</head>
-<body>
+  include '../../config/Database.php';
+  include '../../models/Individu.php';
 
-  <header>
-    <?php include '../../stuffs/header.php'; ?>
-  </header>
+  session_start();
 
-<div class="main">
-  <!--Liste des Messages  -->
-  <div class="discussions">
-    <div class="header">Discussions</div>
-    <div class="msg-list">
+  if (isset($_SESSION['user'])) {
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/images.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Lundi 4 Mars 2018 18:02</p>
-            <span>Message here...</span>
-          </div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+    ?>
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+    <!DOCTYPE html>
+    <html lang="en" >
+    <head>
+      <meta charset="UTF-8">
+      <title>Messages</title>
+      <link rel="stylesheet" href="../../css/messages.css">
+      <script type="text/javascript" src="messaging/jquery/jquery.js"></script>
+      <script type="text/javascript" src="messaging/js/get.js"></script>
+      <script type="text/javascript" src="messaging/js/send.js"></script>
+    </head>
+    <body>
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+      <header>
+        <?php include '../../stuffs/header.php'; ?>
+      </header>
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+    <div class="main">
+      <!--Liste des Messages  -->
+      <div class="discussions">
+        <div class="header">Discussions</div>
+        <div class="msg-list">
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+          <?php
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+            $bdd = Database::connect();
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+            $req = $bdd->prepare("SELECT * FROM discussion WHERE id_individu1=? OR id_individu2=?");
+            $req->execute([$_SESSION['user']->id,$_SESSION['user']->id]);
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+            $id_r = null;
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+            while ($discussion = $req->fetch()) {
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              if ($_SESSION['user']->id == $discussion['id_individu1']) {
+                $id_r = $discussion['id_individu2'];
+              } else {
+                $id_r = $discussion['id_individu1'];
+              }
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              $req2 = $bdd->prepare("SELECT nom,prenoms FROM individu WHERE id=?");
+              $req2->execute([$id_r]);
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              $nomPrenom = $req2->fetch();
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              echo "
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              <a href='?id_discussion={$discussion['id_discussion']}&id_receiver={$id_r}'>
+                <div class='container'>
+                  <div class='photo'>
+                    <img src='../../images/main3.png' alt='img'>
+                  </div>
+                  <div class='cont-info'>
+                    <h4>{$nomPrenom['nom']} {$nomPrenom['prenoms']}</h4>
+                    <span>Message</span>
+                  </div>
+                </div>
+              </a>
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+              ";
+            }
 
-      <a href="#">
-        <div class="container">
-          <div class="photo">
-            <img src="../../images/main3.png" alt="img">
-          </div>
-          <div class="cont-info">
-            <h4>Jerry</h4>
-            <p>Date et heure</p>
-            <span>Message</span>
-          </div>
-        </div>
-      </a>
+           ?>
 
-    </div>
-  </div>
-  <!--Fin Liste des Messages  -->
-
-  <!--Début Message-Box  -->
-  <div class="msg-box">
-    <div class="header">Jerry</div><!-- Header : Jerry -->
-        <!-- Corps de la discussion -->
-      <div class="message">
-        <!-- Sender1: discussion en bleu -->
-        <div class="sender1">
-          <div class="u1 chat">Hey sam,how are u?</div>
-          <p>18:02</p>
-        </div>
-
-        <div class="sender1">
-          <div class="u1 chat">Hey sam,how are u?</div>
-          <p>18:02</p>
-        </div>
-        <div class="sender1">
-          <div class="u1 chat">Hey sam,how are u?</div>
-          <p>18:02</p>
-        </div>
-        <div class="sender1">
-          <div class="u1 chat">Hey sam,how are u?</div>
-          <p>18:02</p>
-        </div>
-
-        <!-- Sender2: discussion en vert -->
-        <div class="sender2">
-          <span class="u2 chat">Hey sam, what?</span>
-          <p>18:04</p>
-        </div>
-
-        <div class="sender2">
-          <span class="u2 chat">Hey sam, what?zetetztzetzetzet</span>
-          <p>18:06</p>
-        </div>
-
-        <div class="sender1">
-          <span class="u1 chat">Hey sam, what?</span>
-          <p>18:10</p>
         </div>
       </div>
-      <!-- Fin Corps de la discussion -->
-    <div class="msg-send">
-      <input type="text" id="msg" placeholder="Ecrivez votre message ..." />
-      <button id="send"><img src="../../images/send1.png" alt="envoyer"></button>
+      <!--Fin Liste des Messages  -->
 
+      <!--Début Message-Box  -->
+      <?php
+
+        if (isset($_GET['id_discussion']) && isset($_GET['id_receiver'])) {
+          ?>
+
+          <div class="msg-box">
+            <div class="header">
+
+              <?php
+
+                $req2 = $bdd->prepare("SELECT nom,prenoms FROM individu WHERE id=?");
+                $req2->execute([$_GET['id_receiver']]);
+
+                $nomPrenom = $req2->fetch();
+
+                echo "{$nomPrenom['nom']} {$nomPrenom['prenoms']}";
+
+               ?>
+
+            </div><!-- Header : Jerry -->
+                <!-- Corps de la discussion -->
+              <div class="messages">
+
+
+
+              </div>
+              <!-- Fin Corps de la discussion -->
+            <form class="msg-send" method="post">
+              <input class="id_d" type="text" id="id_dis" name="id_discussion" value=<?php echo "{$_GET['id_discussion']}"; ?> hidden>
+              <input class="id_r" type="text" name="id_receiver" value=<?php echo "{$_GET['id_receiver']}"; ?> hidden>
+              <input class="msg" name="message" type="text" id="msg" placeholder="Ecrivez votre message ..." />
+              <button type="submit" id="send"><img src="../../images/send1.png" alt="envoyer"></button>
+            </form>
+          </div>
+
+          <?php
+        } else {
+          ?>
+
+          <div class="msg-box">
+            <div class="header"></div><!-- Header : Jerry -->
+                <!-- Corps de la discussion -->
+              <div class="messages">
+              </div>
+              <!-- Fin Corps de la discussion -->
+            <form class="msg-send">
+              <input disabled class="msg" name="message" type="text" id="msg" placeholder="Ecrivez votre message ..." />
+              <button disabled type="submit" id="send"><img src="../../images/send1.png" alt="envoyer"></button>
+            </form>
+          </div>
+
+          <?php
+        }
+
+       ?>
+      <!--Fin Liste des Messages  -->
     </div>
-  </div>
-  <!--Fin Liste des Messages  -->
-</div>
 
-</body>
-</html>
+    </body>
+    </html>
+
+    <?php
+
+  } else {
+    header('location: ../../');
+  }
+
+ ?>
