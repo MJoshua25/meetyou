@@ -43,6 +43,14 @@
 
     $nationalite = $req->fetch();
 
+    $user->matches = getMatchs($user);
+    $matchs = $user->matches;
+    echo("Taille = ".count($matchs));
+    foreach ($matchs as $match ) {
+      echo ("Nom: ".$match->nom);
+      echo ("Prenom: ".$match->prenoms);
+      echo ("Taux: ".$match->taux);
+    }
     ?>
 
     <!DOCTYPE html>
