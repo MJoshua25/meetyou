@@ -63,7 +63,7 @@
         $this->nationalite = $row['nationalite'];
       }
       if (isset($row['religion'])) {
-        $this->nationalite = $row['religion'];
+        $this->religion = $row['religion'];
       }
       if (isset($row['id_ville'])) {
         $this->id_ville = $row['id_ville'];
