@@ -97,10 +97,10 @@
 
                       <select required name="religion">
                           <option disabled selected value="">Religion</option>
-                          <option value="Juif">Juif</option>
-                          <option value="Chretien">Chrétien</option>
-                          <option value="Musulman">Musulman</option>
-                          <option value="Boudhiste">Boudhiste</option>
+                          <option value="Judaisme">Judaisme</option>
+                          <option value="Christianisme">Christianisme</option>
+                          <option value="Islam">Islam</option>
+                          <option value="Boudhisme">Boudhisme</option>
                           <option value="Inconnue">Autre..</option>
                       </select>
 
@@ -228,10 +228,10 @@
                       <select required name="religionMatch">
                           <option disabled selected value="">Religion</option>
                           <option value="null">Sans importance</option>
-                          <option value="Juif">Juif</option>
-                          <option value="Chretient">Chrétient</option>
-                          <option value="Musulman">Musulman</option>
-                          <option value="Boudhiste">Boudhiste</option>
+                          <option value="Judaisme">Judaisme</option>
+                          <option value="Christianisme">Christianisme</option>
+                          <option value="Islam">Islam</option>
+                          <option value="Boudhisme">Boudhisme</option>
                           <option value="Inconnue">Autre..</option>
                       </select>
 

@@ -272,7 +272,20 @@
               </div> -->
               <div class="container_ci">
                 <ul class="ci">
-                  <?php include '../inscription/interets.php'; ?>
+                  <?php
+
+                    $req1 = $bdd->prepare("SELECT * FROM centre_interet WHERE id_ci=(SELECT id_ci FROM individu WHERE id=?)");
+                    $req1->execute([$user->id]);
+
+                    $ci = $req1->fetch();
+
+                    $ci = explode(',',$ci['ci']);
+
+                    foreach ($ci as $c_i) {
+                      echo "<li><input disabled checked type='checkbox'><label>{$c_i}</label></li>";
+                    }
+
+                   ?>
                 </ul>
             </div>
             </div>

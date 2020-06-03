@@ -117,15 +117,17 @@
           ?>
 
           <div class="msg-box">
-            <div class="header"></div><!-- Header : Jerry -->
-                <!-- Corps de la discussion -->
               <div class="messages">
+
+                <center>
+
+                  <h1 style="direction: ltr; transform: rotate(180deg)">Veuillez choisir une discussion !</h1>
+
+                  <img height="200" width="300" style="direction: ltr; transform: rotate(180deg)" src="../../images/message.png" alt="">
+
+                </center>
+
               </div>
-              <!-- Fin Corps de la discussion -->
-            <form class="msg-send">
-              <input disabled class="msg" name="message" type="text" id="msg" placeholder="Ecrivez votre message ..." />
-              <button disabled type="submit" id="send"><img src="../../images/send1.png" alt="envoyer"></button>
-            </form>
           </div>
 
           <?php
