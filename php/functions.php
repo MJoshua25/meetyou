@@ -41,13 +41,13 @@
         if ((getCritere($user,'taille_deb')<= getDescription($profil,'taille')) && (getDescription($profil,'taille') <=getCritere($user,'taille_fin')))
           $compteur++;
 
-        if ((string)(getCritere($user,'nationalite')) != 'null'){
+        if ((string)(getCritere($user,'nationalite')) != null){
           if (getNationalite(getCritere($user,'nationalite')) == getNationalite($profil->nationalite))
             $compteur++;
         }else {
           $compteur++;
         }
-        if (getCritere($user,'religion') != 'null'){
+        if (getCritere($user,'religion') != null){
           if (getCritere($user,'religion') == $profil->religion)
             $compteur++;
         }else {
@@ -55,7 +55,7 @@
         }
 
         foreach ($liste_criteres as $critere) {
-          if (getCritere($user,$critere) != 'null') {
+          if (getCritere($user,$critere) != null) {
 
             if(getCritere($user,$critere) == getDescription($profil,$critere))
             $compteur++;
