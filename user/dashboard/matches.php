@@ -10,7 +10,7 @@
     $user = $_SESSION['user'];
     $user->matches = getMatchs($user);
     $matchs = $user->matches;
-    echo("Taille = ".count($matchs));
+    // echo("Taille = ".count($matchs));
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -57,6 +57,8 @@
         <?php
 
           foreach ($matchs as $match) {
+              $taux =round($match->taux, 0);
+              $age = age($match->date_naissance);
             echo'
 
             <div class="content profil" >
@@ -67,7 +69,7 @@
                 </div>
                 <div class="info_match">
                   <!-- Nom matches -->
-                  <h2>'.$match->prenoms.',&nbsp<span>'.$match->taux.'</span></h2>
+                  <h2>'.$match->nom.',&nbsp'.$age.'&nbsp&nbsp<span>taux = '.$taux.'</span></h2>
                   <div class="line">
                     <div class="ic-job"></div>
                     <!-- Emploi matches -->
@@ -77,7 +79,7 @@
                   <div class="line">
                     <div class="ic-lieu"></div>
                     <!-- Lieu de residence -->
-                    <label class="label-10">'.$match->id_pays.','.$match->id_ville.'</label>
+                    <label class="label-10">'.getNationalite($match->id_pays).','.getVille($match->id_ville).'</label>
                   </div>
                   <div class="line">
                     <button class="btn" type="button" name="btn_msg" onclick=""><div class="ic-msg"><p>Envoyer un message</p></div></button>

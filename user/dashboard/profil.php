@@ -39,18 +39,20 @@
 
     // Recuperation de la nationalite du user
     $req = $bdd->prepare("SELECT * FROM pays WHERE id_pays=?");
-    $req->execute([$user->id_pays]);
+    $req->execute([$user->nationalite]);
 
     $nationalite = $req->fetch();
-
+    // echo("Taille user = ".getDescription($user,'taille'));
+    // echo("Sexe_critere user = ".getCritere($user,'sexe'));
+    // echo("nationalite user = ".getNationalite($user->nationalite));
     $user->matches = getMatchs($user);
     $matchs = $user->matches;
-    echo("Taille = ".count($matchs));
-    foreach ($matchs as $match ) {
-      echo ("Nom: ".$match->nom);
-      echo ("Prenom: ".$match->prenoms);
-      echo ("Taux: ".$match->taux);
-    }
+    // ordonner($matchs);
+
+    // echo("Taille = ".count($matchs));
+    // foreach ($matchs as $match ) {
+    //   echo ("Taux: ".$match->taux);
+    // }
     ?>
 
     <!DOCTYPE html>
