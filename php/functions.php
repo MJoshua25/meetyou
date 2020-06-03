@@ -12,20 +12,42 @@
   }
 
 
-  // function getMatchs($user){
-  //   $allUsers = [];
-  //   $bdd = Database::connect();
-  //   $req = $bdd -> prepare('SELECT * FROM individu WHERE id != :id_user'); // get all individu except $user
-  //   $req -> execute(array('id_user' => $user->id));
-  //   while($data = $req -> fetch()){  // if user exists
-  //     $indiv = new Individu($data);
-  //     $indiv->destroyPassword();
-  //     array_push($allUsers,$indiv);
-  //   }
-  //   $req -> closeCursor(); // end of processing
-  //   $bdd = Database::disconnect();
-  //
-  // }
+  function getMatchs($user){
+    $allUsers = [];
+    $liste = [];
+    $bdd = Database::connect();
+    $req = $bdd -> prepare('SELECT * FROM individu WHERE id != :id_user'); // get all individu except $user
+    $req -> execute(array('id_user' => $user->id));
+    while($data = $req -> fetch()){  // if user exists
+      $indiv = new Individu($data);
+      $indiv->destroyPassword();
+      array_push($allUsers,$indiv);
+    }
+    $req -> closeCursor(); // end of processing
+    $bdd = Database::disconnect();
+
+    foreach ($allUsers as $pers) {
+      $cri_user = getCritere($user);
+      $cri_pers = getCritere($pers);
+      $ci_user = getCi($user);
+      $ci_pers = getCi($pers);
+      $nbr_cri_commun = count(array_intersect($cri_pers,$cri_user));
+      $nbr_ci_commun = count(array_intersect($cri_pers,$cri_user));
+      $taux_critère = ($nbr_cri_commun /count($cri_user))*0.5;//ici 0.5 represente niv_critere a 50 %
+      $taux_ci = ($nbr_ci_commun /count($cri_user))*0.5;//ici 0.5 represente niv_ci a 50 %
+      $taux = ($taux_critère + $taux_ci)*100;
+    	$pers->taux = $taux;
+      array_push($liste, $pers);
+
+    	// if($pers->taux >= 60 && ){
+      // 	array_push($liste, $pers);
+    	// }
+
+    }
+
+    return $liste;
+
+  }
 
   function getCritere($user){
     $criteres = [];

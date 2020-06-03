@@ -2,11 +2,15 @@ TACHES A REALISER :
 
 -Mot de passe contrôle de saisie ---> ok
 -Combobox select profil recherchés ---> ok
--Fonction getMatch()---> en cours
 -Villes et pays (cacher les villes affichées précédemment)--->ok
--Ajouter bouton dans la partie profil
--Partie centre d'intérets afficher les ci (disabled) --> en cours
+-Partie Messagerie --->ok
 
+-Partie centre d'intérets afficher les ci (disabled) --> 50% achevé
+-Fonction getMatch()---> 50% achevé
+-Ajouter bouton dans la partie profil
+-Ameliorer Design div sender(partie message)
+
+-Activer une discussion onclick
 
 (A gerer plus tard )
 
@@ -14,3 +18,4 @@ TACHES A REALISER :
 -Donner une tâche a un petit pour renseigner la base de donnée de PAYSVILLE
 -Gerer la partie administrateur
 -Gérer l'image de profil et le l'image de cover
+-Gerer le volet pré-discussion de la partie messagerie;
