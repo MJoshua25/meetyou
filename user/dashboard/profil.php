@@ -78,7 +78,6 @@
           <div class="pp-container">
             <div class="pp">
 
-
               <img src="../../images/main3.png" alt="">
               <!-- Mettre le taux de compatibilité ici dans la div de class="icons" -->
               <div class="ico-value">
