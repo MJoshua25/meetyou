@@ -8,10 +8,20 @@
 
   if (isset($_SESSION['user'])) {
 
-    // Recuperation du user connecté
-    $user = $_SESSION['user'];
-
     $bdd = Database::connect();
+
+    // Recuperation du user connecté
+    if (isset($_GET['id']) && isset($_GET['taux'])) {
+
+      $req = $bdd->prepare("SELECT * FROM individu WHERE id=?");
+      $req->execute([$_GET['id']]);
+
+      $ind = $req->fetch();
+
+      $user = new Individu($ind);
+    }else {
+      $user = $_SESSION['user'];
+    }
 
     // Recuperation de la description du user
     $req = $bdd->prepare("SELECT * FROM description WHERE id_description=?");
@@ -82,9 +92,19 @@
 
               <img src="../../images/main3.png" alt="">
               <!-- Mettre le taux de compatibilité ici dans la div de class="icons" -->
-              <div class="ico-value">
-                <div class="icons"><img src="../../images/icons/icons8-coeur-match-50.png" alt="">80</div><!-- Mettre ici là ou il ya 80 -->
-              </div>
+              <?php
+
+                if (isset($_GET['id']) && isset($_GET['taux'])) {
+                  ?>
+
+                  <div class="ico-value">
+                    <div class="icons"><img src="../../images/icons/icons8-coeur-match-50.png" alt=""><?php echo $_GET['taux']; ?></div><!-- Mettre ici là ou il ya 80 -->
+                  </div>
+
+                  <?php
+                }
+
+               ?>
               <!-- Nom et age ici  -->
               <div class="name-age">
                 <p><?php echo $user->prenoms; ?>,<span>&nbsp<?php echo age($user->date_naissance); ?></span></p>
@@ -109,7 +129,7 @@
           <div id="Profil" class="tabcontent">
             <div class="tabsupp">
               <div class="description">
-                <h2>Ma description personnelle</h2>
+                <h2><?php echo (isset($_GET['id']) && isset($_GET['taux'])) ? "Description" : "Ma description personnelle"; ?></h2>
               </div>
               <div class="container">
                 <fieldset>
@@ -192,55 +212,66 @@
               </div>
             </div>
 
-            <div  id = "info" class="tabsupp">
-              <div class="description">
-                <h2>Informations personnelles</h2>
-              </div>
-              <div class="info-content">
-                <form action="#" method="post">
+            <?php
 
-                  <input  type="text" name="nom" id="" placeholder="Nom" disabled >
+              if (!(isset($_GET['id']) && isset($_GET['taux']))) {
+                ?>
 
-                  <input  type="text" name="prenoms" id="" placeholder="Prenoms" disabled >
+                <div  id = "info" class="tabsupp">
+                  <div class="description">
+                    <h2>Informations personnelles</h2>
+                  </div>
+                  <div class="info-content">
+                    <form action="#" method="post">
 
-                  <select name="nationalite" disabled >
-                      <option disabled selected value="">Nationalité</option>
-                      <option value="">Element 1</option>
-                      <option value="">Element 2</option>
-                      <option value="">Element 3</option>
-                  </select>
+                      <input  type="text" name="nom" id="" placeholder="Nom" disabled >
 
-                  <select name="sexe" disabled >
-                      <option disabled selected value="">Sexe</option>
-                      <option value="">Homme</option>
-                      <option value="">Femme</option>
-                      <option value="">Autre ...</option>
-                  </select>
+                      <input  type="text" name="prenoms" id="" placeholder="Prenoms" disabled >
 
-                  <input  type="text"  name="tel" id="" placeholder="Telephone" disabled >
+                      <select name="nationalite" disabled >
+                          <option disabled selected value="">Nationalité</option>
+                          <option value="">Element 1</option>
+                          <option value="">Element 2</option>
+                          <option value="">Element 3</option>
+                      </select>
 
-                  <select name="pays" disabled>
-                      <option disabled selected value="" disabled >Pays de residence</option>
-                      <option value="">Element 1</option>
-                      <option value="">Element 2</option>
-                      <option value="">Element 3</option>
-                  </select>
+                      <select name="sexe" disabled >
+                          <option disabled selected value="">Sexe</option>
+                          <option value="">Homme</option>
+                          <option value="">Femme</option>
+                          <option value="">Autre ...</option>
+                      </select>
 
-                  <select name="ville" disabled >
-                      <option disabled selected value="">Ville</option>
-                      <option value="">Element 1</option>
-                      <option value="">Element 2</option>
-                      <option value="">Element 3</option>
-                  </select>
-                  <button type="button" name="modifier"  id="btn_modifier" onclick="enable_info();">Modifier les infos personnelles</button>
+                      <input  type="text"  name="tel" id="" placeholder="Telephone" disabled >
 
-                  <input type="submit" name="valider" id="btn_valider" value="Valider">
+                      <select name="pays" disabled>
+                          <option disabled selected value="" disabled >Pays de residence</option>
+                          <option value="">Element 1</option>
+                          <option value="">Element 2</option>
+                          <option value="">Element 3</option>
+                      </select>
 
-                </form>
+                      <select name="ville" disabled >
+                          <option disabled selected value="">Ville</option>
+                          <option value="">Element 1</option>
+                          <option value="">Element 2</option>
+                          <option value="">Element 3</option>
+                      </select>
+                      <button type="button" name="modifier"  id="btn_modifier" onclick="enable_info();">Modifier les infos personnelles</button>
 
-              </div>
+                      <input type="submit" name="valider" id="btn_valider" value="Valider">
 
-            </div>
+                    </form>
+
+                  </div>
+
+                </div>
+
+                <?php
+              }
+
+             ?>
+
           </div>
 
 

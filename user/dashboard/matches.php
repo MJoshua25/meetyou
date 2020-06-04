@@ -45,7 +45,7 @@
        ?>
 
       <div class="list" id="pref">
-        <h1>Vos préférences</h1>
+        <h3>Vos préférences</h3>
 
         <h3>Sexe</h3>
         <span><?php echo $prefs['sexe']; ?></span><br>
@@ -107,15 +107,14 @@
                     <label class="label-10">'.getNationalite($match->id_pays).','.getVille($match->id_ville).'</label>
                   </div>
                   <div class="line">
-                    <button class="btn" type="button" name="btn_msg" onclick=""><div class="ic-msg"><p>Envoyer un message</p></div></button>
-                    <button class="btn blue" type="button" name="btn_profil" onclick="" ><div class="ic-profil"><p>Voir le profil</p></div></button>
+                    <button class="btn" type="button" name="btn_msg" onclick=""><a style="color:white;" href="../../php/discussion.php?id='.$match->id.'" ><div class="ic-msg"><p>Envoyer un message</p></div></a></button>
+                    <button class="btn blue" type="button" name="btn_profil" onclick="" ><a style="color:white;" href=profil.php?id='.$match->id.'&taux='.$taux.'><div class="ic-profil"><p>Voir le profil</p></div></a></button>
                   </div>
 
                 </div>
-                <div class="photo taux">
-                  <!-- Photo matches -->
+                <!--<div class="photo taux">
                   <img src="../../images/gif/heart2.gif">
-                </div>
+                </div> -->
               </div>
             </div>
 
@@ -337,8 +336,6 @@
       </div>
       </div>
 
-
-    </div>
 
   </body>
   </html>
