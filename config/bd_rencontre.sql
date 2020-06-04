@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Sam 30 Mai 2020 à 20:53
+-- Hôte : localhost
+-- Généré le : jeu. 04 juin 2020 à 15:34
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
--- Version de PHP :  7.4.6
+-- Version de PHP : 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `bd_rencontre`
+-- Base de données : `bd_rencontre`
 --
 
 -- --------------------------------------------------------
@@ -59,11 +60,12 @@ CREATE TABLE `centre_interet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `centre_interet`
+-- Déchargement des données de la table `centre_interet`
 --
 
 INSERT INTO `centre_interet` (`id_ci`, `ci`) VALUES
-('5ed2b6cc6d4ad0.33182483', 'Musique,Science,Cinema/Animation,Education,Technologie,Manga/Animes,Culture,Religion,Histoire');
+('5ed2b6cc6d4ad0.33182483', 'Musique,Cinema/Animation,Education,Technologie,Manga/Animes,Culture,Religion,Pornographie,Histoire'),
+('5ed4e93cc286e6.31338794', 'Musique,Cinema/Animation,Decouverte,Education,Manga/Animes,Religion,Pornographie');
 
 -- --------------------------------------------------------
 
@@ -76,6 +78,26 @@ CREATE TABLE `connexion` (
   `id_individu` int(11) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `connexion`
+--
+
+INSERT INTO `connexion` (`id_connexion`, `id_individu`, `date`) VALUES
+(1, 5, '2020-05-31 19:27:57'),
+(2, 5, '2020-05-31 19:28:17'),
+(3, 5, '2020-05-31 19:29:47'),
+(4, 5, '2020-05-31 19:35:06'),
+(5, 6, '2020-06-01 12:43:45'),
+(6, 5, '2020-06-01 13:00:37'),
+(7, 6, '2020-06-02 21:28:39'),
+(8, 6, '2020-06-02 21:42:06'),
+(9, 5, '2020-06-03 11:16:33'),
+(10, 5, '2020-06-03 14:19:06'),
+(11, 5, '2020-06-03 23:31:35'),
+(12, 5, '2020-06-04 11:52:24'),
+(13, 5, '2020-06-04 11:52:51'),
+(14, 5, '2020-06-04 13:06:04');
 
 -- --------------------------------------------------------
 
@@ -98,11 +120,12 @@ CREATE TABLE `critere` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `critere`
+-- Déchargement des données de la table `critere`
 --
 
 INSERT INTO `critere` (`id_critere`, `age_deb`, `age_fin`, `sexe`, `teint`, `taille_deb`, `taille_fin`, `morphologie`, `nationalite`, `religion`, `commentaire`) VALUES
-('5ed2b6cc6d4ad0.33182483', 18, 21, 'Femme', NULL, 160, 180, NULL, NULL, NULL, '');
+('5ed2b6cc6d4ad0.33182483', 18, 21, 'Femme', NULL, 160, 180, NULL, NULL, NULL, ''),
+('5ed4e93cc286e6.31338794', 34, 42, 'Femme', NULL, 107, 123, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -119,11 +142,12 @@ CREATE TABLE `description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `description`
+-- Déchargement des données de la table `description`
 --
 
 INSERT INTO `description` (`id_description`, `taille`, `teint`, `morphologie`, `commentaire`) VALUES
-('5ed2b6cc6d4ad0.33182483', 180, 'Noir', 'Mince', '');
+('5ed2b6cc6d4ad0.33182483', 180, 'Noir', 'Mince', ''),
+('5ed4e93cc286e6.31338794', 101, 'Clair', 'Mince', 'tyut');
 
 -- --------------------------------------------------------
 
@@ -136,6 +160,13 @@ CREATE TABLE `discussion` (
   `id_individu1` int(11) NOT NULL,
   `id_individu2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `discussion`
+--
+
+INSERT INTO `discussion` (`id_discussion`, `id_individu1`, `id_individu2`) VALUES
+(1, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -165,11 +196,12 @@ CREATE TABLE `individu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `individu`
+-- Déchargement des données de la table `individu`
 --
 
 INSERT INTO `individu` (`id`, `nom`, `prenoms`, `email`, `telephone`, `password`, `sexe`, `date_naissance`, `profession`, `photo`, `date_ins`, `nationalite`, `religion`, `id_ville`, `id_pays`, `id_description`, `id_ci`, `id_critere`) VALUES
-(5, 'Soule', 'ArÃ©mou', 'aziz@gmail.com', '51179350', 'soule007', 'Homme', '1999-10-07', 'Etudiant', NULL, '2020-05-30 20:41:00', 2, 'Musulman', 916, 5, '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483');
+(5, 'Soule', 'ArÃ©mou', 'aziz@gmail.com', '51179350', 'soule007', 'Homme', '1999-10-07', 'Etudiant', NULL, '2020-05-30 20:41:00', 2, 'Musulman', 916, 5, '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483'),
+(6, 'SoulÃ©', 'ArÃ©mou Malick Aziz', 'fuck@yo.com', '67989087', 'Soule007', 'Femme', '2002-12-06', 'Chanteur', NULL, '2020-06-01 12:40:45', 1, 'Musulman', 3, 1, '5ed4e93cc286e6.31338794', '5ed4e93cc286e6.31338794', '5ed4e93cc286e6.31338794');
 
 -- --------------------------------------------------------
 
@@ -183,7 +215,7 @@ CREATE TABLE `liste_centre_interet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `liste_centre_interet`
+-- Déchargement des données de la table `liste_centre_interet`
 --
 
 INSERT INTO `liste_centre_interet` (`id_ci`, `ci`) VALUES
@@ -220,8 +252,16 @@ CREATE TABLE `message` (
   `id_discussion` int(11) NOT NULL,
   `id_sender` int(11) NOT NULL,
   `id_receiver` int(11) NOT NULL,
-  `message` text
+  `message` text,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `message`
+--
+
+INSERT INTO `message` (`id_message`, `id_discussion`, `id_sender`, `id_receiver`, `message`, `date`) VALUES
+(1, 1, 5, 6, 'Coucou', '2020-06-04 11:40:24');
 
 -- --------------------------------------------------------
 
@@ -235,7 +275,7 @@ CREATE TABLE `pays` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `pays`
+-- Déchargement des données de la table `pays`
 --
 
 INSERT INTO `pays` (`id_pays`, `nom_pays`) VALUES
@@ -293,7 +333,7 @@ CREATE TABLE `villes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Contenu de la table `villes`
+-- Déchargement des données de la table `villes`
 --
 
 INSERT INTO `villes` (`id_ville`, `id_pays`, `nom_ville`) VALUES
@@ -5272,7 +5312,7 @@ CREATE TABLE `voir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -5371,7 +5411,7 @@ ALTER TABLE `voir`
   ADD KEY `voir_admin0_FK` (`id_admin`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -5379,43 +5419,51 @@ ALTER TABLE `voir`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `connexion`
 --
 ALTER TABLE `connexion`
-  MODIFY `id_connexion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_connexion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT pour la table `discussion`
 --
 ALTER TABLE `discussion`
-  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT pour la table `individu`
 --
 ALTER TABLE `individu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT pour la table `liste_centre_interet`
 --
 ALTER TABLE `liste_centre_interet`
   MODIFY `id_ci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT pour la table `pays`
 --
 ALTER TABLE `pays`
   MODIFY `id_pays` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT pour la table `villes`
 --
 ALTER TABLE `villes`
   MODIFY `id_ville` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4960;
+
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -5475,6 +5523,7 @@ ALTER TABLE `villes`
 ALTER TABLE `voir`
   ADD CONSTRAINT `voir_admin0_FK` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
   ADD CONSTRAINT `voir_connexion_FK` FOREIGN KEY (`id_connexion`) REFERENCES `connexion` (`id_connexion`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
