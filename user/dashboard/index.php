@@ -64,61 +64,54 @@
 
             <!-- Overview Messages -->
             <div class="msg-box" id="messages">
-              <div class="header">Messages</div>
-              <a href="#">
-                <div class="container">
-                  <div class="photo photo-msg">
-                    <img src="../../images/main3.png" alt="img">
-                  </div>
-                  <div class="cont-info">
-                    <h4>Jerry</h4>
-                    <p>Lundi 4 Mars 2018 18:02</p>
-                    <span>Message here...</span>
-                  </div>
-                </div>
-              </a>
-              <a href="#">
-                <div class="container">
-                  <div class="photo photo-msg">
-                    <img src="../../images/main3.png" alt="img">
-                  </div>
-                  <div class="cont-info">
-                    <h4>Jerry</h4>
-                    <p>Lundi 4 Mars 2018 18:02</p>
-                    <span>Message here...</span>
-                  </div>
-                </div>
-              </a>
-              <a href="#">
-                <div class="container">
-                  <div class="photo photo-msg">
-                    <img src="../../images/main3.png" alt="img">
-                  </div>
-                  <div class="cont-info">
-                    <h4>Jerry</h4>
-                    <p>Lundi 4 Mars 2018 18:02</p>
-                    <span>Message here...</span>
-                  </div>
-                </div>
-              </a>
-              <a href="#">
-                <div class="container">
-                  <div class="photo photo-msg">
-                    <img src="../../images/main3.png" alt="img">
-                  </div>
-                  <div class="cont-info">
-                    <h4>Jerry</h4>
-                    <p>Lundi 4 Mars 2018 18:02</p>
-                    <span>Message here...</span>
-                  </div>
-                </div>
-              </a>
-            </div>
+              <div class="header">Discussions</div>
+              <?php
+
+                $bdd = Database::connect();
+
+                $req = $bdd->prepare("SELECT * FROM discussion WHERE id_individu1=? OR id_individu2=?");
+                $req->execute([$_SESSION['user']->id,$_SESSION['user']->id]);
+
+                $id_r = null;
+
+                while ($discussion = $req->fetch()) {
+
+                  if ($_SESSION['user']->id == $discussion['id_individu1']) {
+                    $id_r = $discussion['id_individu2'];
+                  } else {
+                    $id_r = $discussion['id_individu1'];
+                  }
+
+                  $req2 = $bdd->prepare("SELECT nom,prenoms FROM individu WHERE id=?");
+                  $req2->execute([$id_r]);
+
+                  $nomPrenom = $req2->fetch();
+
+                  echo "
+
+                  <a href='messages.php?id_discussion={$discussion['id_discussion']}&id_receiver={$id_r}'>
+                    <div class='container'>
+                      <div class='photo photo-msg'>
+                        <img src='../../images/main3.png' alt='img'>
+                      </div>
+                      <div class='cont-info'>
+                        <h4>{$nomPrenom['nom']} {$nomPrenom['prenoms']}</h4>
+                        <span>Message</span>
+                      </div>
+                    </div>
+                  </a>
+
+                  ";
+                }
+
+               ?>
             <!--Fin Overview Messages -->
           </div>
         </div>
-        <?php include '../../stuffs/footer.php'; ?>
       </body>
+
+      <?php include '../../stuffs/footer.php'; ?>
+
     </html>
 
 

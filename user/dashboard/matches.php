@@ -32,20 +32,45 @@
 
     <div class="body" id="prof_comp">
       <!-- Div préférences -->
+
+      <?php
+
+        $connection = Database::connect();
+
+        $requette = $connection->prepare("SELECT * FROM critere WHERE id_critere=(SELECT id_critere FROM individu WHERE id=?)");
+        $requette->execute([$user->id]);
+
+        $prefs = $requette->fetch();
+
+       ?>
+
       <div class="list" id="pref">
-        <h3>Vos préférences</h3>
+        <h1>Vos préférences</h1>
+
+        <h3>Sexe</h3>
+        <span><?php echo $prefs['sexe']; ?></span><br>
+
         <!-- Age ici -->
         <h3>Age</h3>
-        <span>De <span id="age_inf">18</span> à <span id="age_sup">60</span> ans</span>
+        <span>De <span id="age_inf"><?php echo $prefs['age_deb']; ?></span> à <span id="age_sup"><?php echo $prefs['age_fin']; ?></span> ans</span>
+
         <!-- Taille ici -->
         <h3>Taille</h3>
-        <span>Entre <span id="tailleMatch_inf">100</span> et <span id="tailleMatch_sup">200</span>  cm</span>
+        <span>Entre <span id="tailleMatch_inf"><?php echo $prefs['taille_deb']; ?></span> et <span id="tailleMatch_sup"><?php echo $prefs['taille_fin']; ?></span>  cm</span>
 
-        <h3>Origine et religion</h3>
-        <!-- origine ici -->
-        <span>Sans importance</span><br>
+        <h3>Religion</h3>
+        <span><?php echo ($prefs['religion'] == null) ? "Sans importance" : $prefs['religion']; ?></span><br>
+
+        <h3>Teint</h3>
+        <span><?php echo ($prefs['teint'] == null) ? "Sans importance" : $prefs['teint']; ?></span><br>
+
+        <h3>Morphologie</h3>
+        <span><?php echo ($prefs['morphologie'] == null) ? "Sans importance" : $prefs['morphologie']; ?></span><br>
+
+        <h3>Nationalité</h3>
+        <span><?php echo ($prefs['nationalite'] == null) ? "Sans importance" : $prefs['nationalite']; ?></span><br>
+
         <!-- religion ici -->
-        <span>Musulman</span> <br>
         <a href="settings.php#preferences">
           <button class="" type="button" name="button">Modifier</button>
         </a>
