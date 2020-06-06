@@ -124,6 +124,14 @@
 .ic-prof:before{
   content:url(../../images/icons/icons8-prof-25.png);
 }
+.ic-prof:before{
+  content:url(../../images/icons/icons8-prof-25.png);
+}
+
+.ic-game:before{
+  content:url(../../images/icons/icons8-manette-25.png);
+}
+
 /* icons */
 
 @media screen and (max-width: 500px) {
@@ -148,6 +156,7 @@
   </div>
   <a href="matches.php"><i class="ic-heart"></i><p>Profils compatibles</p></a>
   <a href="messages.php"><i class="ic-message"></i><p>Messages</p></a>
+  <a href="game.html"><i class="ic-game"></i><p>Jeux</p></a>
   <a href="index.php" class="logo"><p>Y😍u<span>Meet</span></p></a>
 
 

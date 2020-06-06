@@ -1,0 +1,6 @@
+#avatar {
+  height: 50px;
+  width: 45px;
+  background-image: url(../sprites/player/player-spritemap-v9.png);
+  background-position: 0px 0px;
+}
