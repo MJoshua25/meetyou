@@ -17,6 +17,7 @@ body {
   background-image: url(../images/main8.jpg);
   background-size: cover;
   background-attachment: fixed;
+  display: flex;
   /* background: rgb(169,241,255);
   background: radial-gradient(circle, rgba(169,241,255,1) 0%, rgba(206,233,238,1) 41%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(9,9,121,1) 100%); */
 }
@@ -136,6 +137,33 @@ body {
   background-color: #112;
   border-bottom-color: rgb(11, 55, 146);
 }
+
+.ic-msg:before{
+  content:url(../images/icons/icons8-bavarder-25.png);
+}
+
+.btn{
+  margin-top: 30px;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(56, 165, 97);
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px 3px rgba(0, 0, 255, .2);
+  height: 50px;
+  transform: translate(150%,250%);
+  position: relative;
+}
+.btn p{
+  float: right;
+  margin: 0;
+  padding-top: 5px;
+  padding-left:5px;
+}
+
+
 .container{
   display: flex;
 }
@@ -143,6 +171,8 @@ fieldset{
   margin-top: 20px;
   height: auto;
   border:none;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 legend{
   font-weight: bold;

@@ -52,6 +52,15 @@
     $req->execute([$user->nationalite]);
 
     $nationalite = $req->fetch();
+
+    if ($critere['nationalite'] == null) {
+      $nationaliteMatch = array("nom_pays"=>"Sans importance");
+    }else {
+      $req = $bdd->prepare("SELECT * FROM pays WHERE id_pays=?");
+      $req->execute([$critere['nationalite']]);
+
+      $nationaliteMatch = $req->fetch();
+    }
     // echo("Taille user = ".getDescription($user,'taille'));
     // echo("Sexe_critere user = ".getCritere($user,'sexe'));
     // echo("nationalite user = ".getNationalite($user->nationalite));
@@ -114,10 +123,24 @@
                 <div class="ic-job"></div>
                 <p><?php echo $user->profession; ?></p>
                 <div class="ic-lieu"></div>
-                <p><?php echo $nationalite['nom_pays']; ?>&nbsp(<?php echo $ville['nom_ville']; ?>)</p>
+                <p><?php echo $ville['nom_ville']; ?>&nbsp(<?php echo $pays['nom_pays']; ?>)</p>
               </div>
 
             </div>
+
+            <?php
+
+            if (isset($_GET['id']) && isset($_GET['taux'])) {
+              ?>
+
+                <button class="btn" type="button" name="btn_msg" onclick=""><a style="color:white;" href="../../php/discussion.php?id=<?php echo $_GET['id']; ?>" ><div class="ic-msg"><p>Envoyer un message</p></div></a></button>
+
+              <?php
+            }
+
+             ?>
+
+
           </div>
 
           <div class="tab">
@@ -152,18 +175,32 @@
                 </fieldset>
 
                 <fieldset>
-                  <div class="ico-value">
+                  <!-- <div class="ico-value">
                     <div class="icons"><img src="../../images/icons/icons8-globe-50.png" alt=""></div>
-                    <h4><?php echo $pays['nom_pays']; ?></h4>
-                  </div>
-                  <div class="ico-value">
+                    <h4><?php //echo $pays['nom_pays']; ?></h4>
+                  </div> -->
+                  <!-- <div class="ico-value">
                     <div class="icons"><img src="../../images/icons/icons8-bâtiments-de-la-ville-50.png" alt=""></div>
-                    <h4><?php echo $ville['nom_ville']; ?></h4>
+                    <h4><?php //echo $ville['nom_ville']; ?></h4>
+                  </div> -->
+
+                  <div class="ico-value">
+                    <div class="icons"><img src="../../images/icons/icons8-prayer-50.png" alt=""></div>
+                    <h4><?php echo $user->religion; ?></h4>
                   </div>
+
                   <div class="ico-value">
                     <div class="icons"><img src="../../images/icons/icons8-langue-50.png" alt=""></div>
                     <h4><?php echo $nationalite['nom_pays']; ?></h4>
                   </div>
+
+                  <div class="ico-value">
+                    <div class="icons"><img src="../../images/icons/icons8-info-50.png" alt=""></div>
+                    <textarea rows="3" cols="" placeholder="Informations suplementaires ..." name="infoSup" disabled>
+                      <?php echo $description['commentaire']; ?>
+                    </textarea>
+                  </div>
+
                 </fieldset>
               </div>
 
@@ -202,6 +239,17 @@
                     <h4>De <span id="age_inf"><?php echo $critere['age_deb']; ?></span> à <span id="age_sup"><?php echo $critere['age_fin']; ?></span> ans</h4>
 
                   </div>
+
+                  <div class="ico-value">
+                    <div class="icons"><img src="../../images/icons/icons8-prayer-50.png" alt=""></div>
+                    <h4><?php echo ($critere['religion']==null) ? "Sans importance" : $critere['religion']; ?></h4>
+                  </div>
+
+                  <div class="ico-value">
+                    <div class="icons"><img src="../../images/icons/icons8-langue-50.png" alt=""></div>
+                    <h4><?php echo $nationaliteMatch['nom_pays']; ?></h4>
+                  </div>
+
                   <div class="ico-value">
                     <div class="icons"><img src="../../images/icons/icons8-info-50.png" alt=""></div>
                     <textarea rows="3" cols="" placeholder="Informations suplementaires ..." name="infoSup" disabled>

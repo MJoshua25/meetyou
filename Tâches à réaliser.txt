@@ -4,18 +4,40 @@ TACHES A REALISER :
 -Combobox select profil recherchés ---> ok
 -Villes et pays (cacher les villes affichées précédemment)--->ok
 -Partie Messagerie --->ok
+-Activer une discussion onclick ->ok
+-Partie centre d'intérets afficher les ci (disabled) --> ok
+-Fonction getMatch()---> ok
+-Ajouter bouton dans la partie profil --> ok
 
--Partie centre d'intérets afficher les ci (disabled) --> 50% achevé
--Fonction getMatch()---> 50% achevé
--Ajouter bouton dans la partie profil
--Ameliorer Design div sender(partie message)
+-Infos a afficher sur le profil :
+  (user)
+  nom
+  photo
+  religion
+  prenoms -> ok
+  sexe -> ok
+  age -> ok
+  profession -> ok
+  nationalite -> ok
+  ville -> ok
+  pays -> ok
+  commentaire -> ok
 
--Activer une discussion onclick
+  (profil recherché)
+  age_deb -> ok
+  age_fin -> ok
+  sexe -> ok
+  teint -> ok
+  taille_deb -> ok
+  taille_fin -> ok
+  morphologie -> ok
+  nationalite -> ok
+  religion -> ok
+  commentaire -> ok
 
-(A gerer plus tard )
-
--Statut de la personne personne connectée
--Donner une tâche a un petit pour renseigner la base de donnée de PAYSVILLE
--Gerer la partie administrateur
--Gérer l'image de profil et le l'image de cover
--Gerer le volet pré-discussion de la partie messagerie;
+A gerer plus tard
+  -Ameliorer Design div sender(partie message)
+  -Statut de la personne personne connectée
+  -Gerer la partie administrateur
+  -Gérer l'image de profil et le l'image de cover
+  -Gerer le volet pré-discussion de la partie messagerie;

@@ -16,7 +16,17 @@
       <title>Messages</title>
       <link rel="stylesheet" href="../../css/messages.css">
       <script type="text/javascript" src="messaging/jquery/jquery.js"></script>
-      <script type="text/javascript" src="messaging/js/get.js"></script>
+      <?php
+
+        if (isset($_GET['id_discussion']) && isset($_GET['id_receiver'])) {
+          ?>
+
+          <script type="text/javascript" src="messaging/js/get.js"></script>
+
+          <?php
+        }
+
+       ?>
       <script type="text/javascript" src="messaging/js/send.js"></script>
     </head>
     <body>
