@@ -11,9 +11,9 @@ TACHES A REALISER :
 
 -Infos a afficher sur le profil :
   (user)
-  nom
+  nom -> ok
   photo
-  religion
+  religion -> ok
   prenoms -> ok
   sexe -> ok
   age -> ok

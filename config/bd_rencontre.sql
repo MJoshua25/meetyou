@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : jeu. 04 juin 2020 à 15:34
--- Version du serveur :  5.7.30-0ubuntu0.18.04.1
--- Version de PHP : 7.4.6
+-- Hôte : localhost:3306
+-- Généré le : lun. 08 juin 2020 à 09:35
+-- Version du serveur :  10.3.16-MariaDB
+-- Version de PHP : 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `bd_rencontre`
+-- Base de données : `id13911410_bd_rencontre`
 --
 
 -- --------------------------------------------------------
@@ -56,7 +57,7 @@ CREATE TABLE `administrer` (
 
 CREATE TABLE `centre_interet` (
   `id_ci` varchar(50) NOT NULL,
-  `ci` set('Sport','Lecture','Musique','Science','Mode','Cinema/Animation','Nature','Voyage','Plage','Decouverte','Education','Danse','Technologie','Karaoke','Manga/Animes','Culture','Politique','Religion','Pornographie','Divers','Histoire') NOT NULL
+  `ci` set('Sport','Lecture','Musique','Science','Mode','Cinema/Animation','Nature','Voyage','Plage','Decouverte','Education','Danse','Technologie','Karaoke','Manga/Animes','Culture','Politique','Religion','Divers','Histoire') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -64,8 +65,36 @@ CREATE TABLE `centre_interet` (
 --
 
 INSERT INTO `centre_interet` (`id_ci`, `ci`) VALUES
-('5ed2b6cc6d4ad0.33182483', 'Musique,Cinema/Animation,Education,Technologie,Manga/Animes,Culture,Religion,Pornographie,Histoire'),
-('5ed4e93cc286e6.31338794', 'Musique,Cinema/Animation,Decouverte,Education,Manga/Animes,Religion,Pornographie');
+('xyz02arci003', 'Lecture,Musique,Mode,Cinema/Animation,Voyage,Plage,Danse,Culture,Divers,Histoire'),
+('xyz02arci005', 'Sport,Lecture,Musique,Mode,Voyage'),
+('xyz05arci0026', 'Lecture,Musique,Mode,Cinema/Animation,Manga/Animes'),
+('xyz05arci0027', 'Sport,Musique,Science,Cinema/Animation,Technologie,Manga/Animes,Politique,Religion'),
+('xyz06arci0021', 'Musique,Mode,Voyage,Plage,Decouverte,Education,Danse,Manga/Animes'),
+('xyz10arci0023', 'Lecture,Musique,Nature,Voyage,Plage,Decouverte,Technologie,Karaoke,Religion'),
+('xyz10arci008', 'Sport,Lecture,Musique,Science,Mode,Technologie,Manga/Animes'),
+('xyz11arci0015', 'Sport,Musique,Science,Cinema/Animation,Technologie,Manga/Animes,Divers'),
+('xyz11arci0025', 'Sport,Musique,Mode,Cinema/Animation,Danse,Karaoke,Religion,Divers'),
+('xyz11arci0028', 'Lecture,Musique,Science,Mode,Nature,Voyage,Decouverte,Education,Manga/Animes,Culture,Politique,Religion,Histoire'),
+('xyz13arci009', 'Sport,Musique,Mode,Cinema/Animation,Nature,Voyage,Danse,Technologie,Manga/Animes'),
+('xyz14arci0012', 'Sport,Musique,Science,Technologie,Manga/Animes'),
+('xyz18arci0010', 'Sport,Nature,Voyage,Histoire'),
+('xyz21arci0016', 'Sport,Lecture,Musique,Mode,Cinema/Animation,Nature,Voyage,Plage,Decouverte,Education,Danse,Karaoke,Culture,Politique,Religion,Divers'),
+('xyz24arci002', 'Sport,Musique,Science,Cinema/Animation,Plage,Decouverte,Technologie,Manga/Animes,Culture'),
+('xyz26arci0024', 'Manga/Animes'),
+('xyz30arci007', 'Sport,Musique,Mode,Cinema/Animation,Nature,Technologie,Manga/Animes,Divers'),
+('xyz31arci006', 'Lecture,Musique,Science,Cinema/Animation,Voyage,Plage,Decouverte,Education,Technologie,Manga/Animes,Culture,Religion,Histoire'),
+('xyz33arci0011', 'Mode,Plage,Decouverte,Danse,Politique'),
+('xyz33arci004', 'Sport,Musique,Science,Voyage,Decouverte,Education,Technologie,Manga/Animes,Culture,Religion,Divers,Histoire'),
+('xyz39arci0022', 'Sport,Cinema/Animation,Voyage,Plage,Decouverte,Technologie,Histoire'),
+('xyz41arci0017', 'Sport,Musique,Cinema/Animation,Voyage,Manga/Animes'),
+('xyz41arci0019', 'Sport,Lecture,Musique,Mode,Voyage,Decouverte,Religion'),
+('xyz43arci0029', 'Sport,Lecture,Musique,Science,Mode,Cinema/Animation,Nature,Voyage,Plage,Decouverte'),
+('xyz44arci0018', 'Sport,Lecture,Musique,Science,Plage,Technologie,Karaoke'),
+('xyz46arci0013', 'Cinema/Animation'),
+('xyz49arci001', 'Lecture,Musique,Science,Cinema/Animation,Nature,Education,Technologie,Manga/Animes,Culture,Religion,Divers,Histoire'),
+('xyz55arci0014', 'Sport,Lecture,Musique,Cinema/Animation,Decouverte,Education,Manga/Animes,Politique,Religion'),
+('xyz55arci0020', 'Sport,Lecture,Science,Divers,Histoire'),
+('xyz56arci0030', 'Sport,Musique,Plage');
 
 -- --------------------------------------------------------
 
@@ -78,26 +107,6 @@ CREATE TABLE `connexion` (
   `id_individu` int(11) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `connexion`
---
-
-INSERT INTO `connexion` (`id_connexion`, `id_individu`, `date`) VALUES
-(1, 5, '2020-05-31 19:27:57'),
-(2, 5, '2020-05-31 19:28:17'),
-(3, 5, '2020-05-31 19:29:47'),
-(4, 5, '2020-05-31 19:35:06'),
-(5, 6, '2020-06-01 12:43:45'),
-(6, 5, '2020-06-01 13:00:37'),
-(7, 6, '2020-06-02 21:28:39'),
-(8, 6, '2020-06-02 21:42:06'),
-(9, 5, '2020-06-03 11:16:33'),
-(10, 5, '2020-06-03 14:19:06'),
-(11, 5, '2020-06-03 23:31:35'),
-(12, 5, '2020-06-04 11:52:24'),
-(13, 5, '2020-06-04 11:52:51'),
-(14, 5, '2020-06-04 13:06:04');
 
 -- --------------------------------------------------------
 
@@ -116,7 +125,7 @@ CREATE TABLE `critere` (
   `morphologie` varchar(50) DEFAULT NULL,
   `nationalite` int(11) DEFAULT NULL,
   `religion` varchar(50) DEFAULT NULL,
-  `commentaire` text
+  `commentaire` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,8 +133,36 @@ CREATE TABLE `critere` (
 --
 
 INSERT INTO `critere` (`id_critere`, `age_deb`, `age_fin`, `sexe`, `teint`, `taille_deb`, `taille_fin`, `morphologie`, `nationalite`, `religion`, `commentaire`) VALUES
-('5ed2b6cc6d4ad0.33182483', 18, 21, 'Femme', NULL, 160, 180, NULL, NULL, NULL, ''),
-('5ed4e93cc286e6.31338794', 34, 42, 'Femme', NULL, 107, 123, NULL, NULL, NULL, '');
+('xyz02arci003', 19, 50, 'Homme', NULL, 169, 200, NULL, NULL, NULL, ''),
+('xyz02arci005', 23, 27, 'Homme', 'Bronze', 114, 133, 'Gros', 7, 'Inconnue', ''),
+('xyz05arci0026', 22, 26, 'Homme', NULL, 170, 170, 'Mince', 41, 'Christianisme', ''),
+('xyz05arci0027', 18, 20, 'Femme', NULL, 140, 190, NULL, 41, NULL, ''),
+('xyz06arci0021', 21, 30, 'Homme', NULL, 180, 190, 'Mince', NULL, NULL, 'Drôle et attentioné'),
+('xyz10arci0023', 20, 23, 'Homme', 'Noir', 173, 180, 'Mince', NULL, 'Christianisme', ''),
+('xyz10arci008', 18, 22, 'Femme', 'Clair', 170, 180, 'Gros', 28, 'Christianisme', 'Belle , sociable , respectable et savoir cuisiner'),
+('xyz11arci0015', 18, 25, 'Femme', NULL, 100, 179, 'Autre', NULL, NULL, 'Je veux qu\'elle soit cool intelligente et très belle'),
+('xyz11arci0025', 20, 30, 'Homme', NULL, 170, 200, NULL, NULL, 'Christianisme', 'La sincérité, mais surtout quelqun qui fait passer Dieu avant tout'),
+('xyz11arci0028', 21, 50, 'Homme', NULL, 170, 200, NULL, NULL, NULL, ''),
+('xyz13arci009', 35, 35, 'Femme', NULL, 170, 180, 'Autre', NULL, 'Christianisme', ''),
+('xyz14arci0012', 18, 80, 'Femme', 'Clair', 176, 199, 'Autre', 15, 'Judaisme', 'Si elle mange beaucoup ça me va'),
+('xyz18arci0010', 19, 29, 'Femme', 'Bronze', 165, 190, NULL, NULL, 'Christianisme', 'Je recherche une personne qui a des d\'abord toutes ses facultés mentales en place, respectueuse, travailleuse et soumise. '),
+('xyz21arci0016', 23, 30, 'Homme', NULL, 173, 180, 'Autre', NULL, 'Christianisme', 'La maturité et le respect '),
+('xyz24arci002', 18, 19, 'Femme', 'Clair', 175, 180, NULL, 21, NULL, 'Aimante cool passionnée'),
+('xyz26arci0024', 18, 35, 'Femme', NULL, 150, 175, 'Mince', NULL, NULL, 'Jedjdjdbjdije'),
+('xyz30arci007', 18, 25, 'Femme', NULL, 100, 170, 'Autre', NULL, NULL, 'Je veux qu\'elle soit ouverte'),
+('xyz31arci006', 20, 27, 'Femme', NULL, 150, 180, 'Mince', NULL, 'Christianisme', 'Cool'),
+('xyz33arci0011', 40, 40, 'Inconnu', NULL, 157, 179, NULL, NULL, NULL, 'Un côté BDSM et assez chic'),
+('xyz33arci004', 20, 30, 'Femme', NULL, 175, 182, 'Mince', NULL, NULL, ''),
+('xyz39arci0022', 18, 20, 'Femme', 'Noir', 150, 155, 'Mince', 41, 'Islam', ''),
+('xyz41arci0017', 18, 21, 'Femme', NULL, 165, 170, NULL, NULL, NULL, 'Patiente, cultivée, intelligente, sais cuisinee'),
+('xyz41arci0019', 30, 55, 'Homme', 'Noir', 175, 190, NULL, 19, 'Christianisme', 'Homme adulte et mature , financièrement stable '),
+('xyz43arci0029', 20, 25, 'Homme', 'Clair', 197, 200, NULL, NULL, NULL, ''),
+('xyz44arci0018', 19, 19, 'Femme', 'Bronze', 188, 190, NULL, 41, 'Christianisme', ''),
+('xyz46arci0013', 18, 22, 'Femme', NULL, 180, 190, 'Mince', NULL, NULL, ''),
+('xyz49arci001', 18, 21, 'Femme', 'Bronze', 170, 180, 'Mince', NULL, 'Islam', ''),
+('xyz55arci0014', 18, 26, 'Femme', NULL, 157, 172, NULL, NULL, NULL, ''),
+('xyz55arci0020', 18, 26, 'Femme', NULL, 100, 200, NULL, NULL, NULL, ''),
+('xyz56arci0030', 18, 22, 'Femme', NULL, 160, 190, NULL, 41, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -138,7 +175,7 @@ CREATE TABLE `description` (
   `taille` int(11) NOT NULL,
   `teint` varchar(50) NOT NULL,
   `morphologie` varchar(50) NOT NULL,
-  `commentaire` text
+  `commentaire` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -146,8 +183,36 @@ CREATE TABLE `description` (
 --
 
 INSERT INTO `description` (`id_description`, `taille`, `teint`, `morphologie`, `commentaire`) VALUES
-('5ed2b6cc6d4ad0.33182483', 180, 'Noir', 'Mince', ''),
-('5ed4e93cc286e6.31338794', 101, 'Clair', 'Mince', 'tyut');
+('xyz02arci003', 172, 'Clair', 'Autre', ''),
+('xyz02arci005', 197, 'Clair', 'Mince', ''),
+('xyz05arci0026', 161, 'Noir', 'Autre', ''),
+('xyz05arci0027', 173, 'Noir', 'Mince', ''),
+('xyz06arci0021', 172, 'Clair', 'Gros', 'Géniale !'),
+('xyz10arci0023', 170, 'Noir', 'Mince', ''),
+('xyz10arci008', 190, 'Clair', 'Mince', 'Simple et sociable'),
+('xyz11arci0015', 180, 'Bronze', 'Mince', 'Je suis un ex représentant de la FIFA'),
+('xyz11arci0025', 164, 'Bronze', 'Mince', ''),
+('xyz11arci0028', 168, 'Noir', 'Autre', 'J\'ai la vie '),
+('xyz13arci009', 171, 'Bronze', 'Autre', ''),
+('xyz14arci0012', 166, 'Bronze', 'Autre', 'Je mange beaucoup je m\'amuse beaucoup '),
+('xyz18arci0010', 175, 'Noir', 'Mince', ''),
+('xyz21arci0016', 165, 'Noir', 'Autre', ''),
+('xyz24arci002', 180, 'Noir', 'Mince', 'Cool et joyeux !!'),
+('xyz26arci0024', 173, 'Noir', 'Mince', 'Je suis fan de souley'),
+('xyz30arci007', 180, 'Bronze', 'Autre', 'Je suis un ancien représentant de la FIFA'),
+('xyz31arci006', 170, 'Noir', 'Autre', 'Cool'),
+('xyz33arci0011', 194, 'Noir', 'Autre', 'Je suis non-binaire, athée, libertain et très attachant. '),
+('xyz33arci004', 184, 'Bronze', 'Autre', ''),
+('xyz39arci0022', 200, 'Noir', 'Mince', ''),
+('xyz41arci0017', 174, 'Noir', 'Mince', 'Chauve'),
+('xyz41arci0019', 170, 'Clair', 'Autre', 'Jeune fille sérieuse et bosseuse '),
+('xyz43arci0029', 181, 'Bronze', 'Mince', ''),
+('xyz44arci0018', 195, 'Bronze', 'Mince', 'Azoupoundoumoudou Dorgeles tchrr et Ahoco Martial'),
+('xyz46arci0013', 195, 'Clair', 'Mince', 'Diiiuuudijuycjbkllllllvdjcddfjbvv'),
+('xyz49arci001', 180, 'Noir', 'Mince', ''),
+('xyz55arci0014', 171, 'Noir', 'Mince', ''),
+('xyz55arci0020', 171, 'Bronze', 'Mince', ''),
+('xyz56arci0030', 190, 'Noir', 'Mince', '');
 
 -- --------------------------------------------------------
 
@@ -160,13 +225,6 @@ CREATE TABLE `discussion` (
   `id_individu1` int(11) NOT NULL,
   `id_individu2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `discussion`
---
-
-INSERT INTO `discussion` (`id_discussion`, `id_individu1`, `id_individu2`) VALUES
-(1, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -200,8 +258,36 @@ CREATE TABLE `individu` (
 --
 
 INSERT INTO `individu` (`id`, `nom`, `prenoms`, `email`, `telephone`, `password`, `sexe`, `date_naissance`, `profession`, `photo`, `date_ins`, `nationalite`, `religion`, `id_ville`, `id_pays`, `id_description`, `id_ci`, `id_critere`) VALUES
-(5, 'Soule', 'ArÃ©mou', 'aziz@gmail.com', '51179350', 'soule007', 'Homme', '1999-10-07', 'Etudiant', NULL, '2020-05-30 20:41:00', 2, 'Musulman', 916, 5, '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483', '5ed2b6cc6d4ad0.33182483'),
-(6, 'SoulÃ©', 'ArÃ©mou Malick Aziz', 'fuck@yo.com', '67989087', 'Soule007', 'Femme', '2002-12-06', 'Chanteur', NULL, '2020-06-01 12:40:45', 1, 'Musulman', 3, 1, '5ed4e93cc286e6.31338794', '5ed4e93cc286e6.31338794', '5ed4e93cc286e6.31338794');
+(1, 'Soulé', 'Arémou malick Aziz', 'aziz0071999@gmail.com', '51179350', 'soule007', 'Homme', '1999-10-07', 'Etudiant', NULL, '2020-06-04 18:50:49', 2, 'Islam', 55, 2, 'xyz49arci001', 'xyz49arci001', 'xyz49arci001'),
+(2, 'Ankanje', 'Frank Gaspard', 'pepsmail95@gmail.com', '07524931', 'Azerty123456', 'Homme', '1997-03-13', 'Etudiant', NULL, '2020-06-04 19:29:24', 21, 'Christianisme', 3144, 21, 'xyz24arci002', 'xyz24arci002', 'xyz24arci002'),
+(3, 'Cynthia', 'Carmen', 'carmencynthianombro@gmail.com', '78410220', 'Camimipourmoi', 'Femme', '2001-10-31', 'Étudiante', NULL, '2020-06-04 22:25:02', 41, 'Christianisme', 4960, 41, 'xyz02arci003', 'xyz02arci003', 'xyz02arci003'),
+(4, 'Konan', 'Aristide Don Marc', 'konantido1@gmail.com', '79095654', '123Tidos', 'Homme', '1999-12-20', 'Etudiant', NULL, '2020-06-04 22:27:33', 41, 'Christianisme', 2568, 41, 'xyz33arci004', 'xyz33arci004', 'xyz33arci004'),
+(5, 'Soule', 'Jean noel', 'Soulemercon@gmail.com', '07829892', 'Sam10', 'Inconnu', '1990-12-31', 'Bolosseur', NULL, '2020-06-04 22:32:02', 41, 'Inconnue', 2269, 7, 'xyz02arci005', 'xyz02arci005', 'xyz02arci005'),
+(6, 'Amand', 'yann', 'yannaxelamand@gmail.com', '22549309945', 'amandyann2020', 'Homme', '1997-07-03', 'Assistant Banque', NULL, '2020-06-04 22:32:31', 41, 'Christianisme', 4960, 41, 'xyz31arci006', 'xyz31arci006', 'xyz31arci006'),
+(7, 'N\'GUESSAN', 'Vidal', 'vidaltecleky@gmail.com', '48280092', '4444d', 'Homme', '1990-12-31', 'Étudiant et trader', NULL, '2020-06-04 22:47:30', 41, 'Boudhisme', 4960, 41, 'xyz30arci007', 'xyz30arci007', 'xyz30arci007'),
+(8, 'Maniga', 'Yamati Kélétigui Junior', 'keletigui.maniga.jr@gmail.com', '+22579290308', 'juninho225', 'Homme', '2001-06-01', 'Étudiant', NULL, '2020-06-04 22:53:10', 41, 'Christianisme', 4960, 41, 'xyz10arci008', 'xyz10arci008', 'xyz10arci008'),
+(9, 'Hugo', 'Boss', 'Hugoboss@gmail.com', '87541536', 'Sweetlifeinjesus', 'Homme', '2002-04-05', 'Ingenieur', NULL, '2020-06-04 22:55:13', 41, 'Christianisme', 107, 9, 'xyz13arci009', 'xyz13arci009', 'xyz13arci009'),
+(10, 'Yao ', 'KOUASSI ', 'ryao.kouassi208@gmail.com ', '57563366', 'kouassikan', 'Homme', '1996-10-18', 'Étudiant', NULL, '2020-06-04 22:58:18', 41, 'Christianisme', 4960, 41, 'xyz18arci0010', 'xyz18arci0010', 'xyz18arci0010'),
+(11, 'Haller', 'Gaby', 'infini@hotmail.com', '+330204080599', 'rarete', 'Inconnu', '1998-12-31', 'Gourmet professionnel', NULL, '2020-06-04 23:00:33', 19, 'Inconnue', 2998, 19, 'xyz33arci0011', 'xyz33arci0011', 'xyz33arci0011'),
+(12, 'Michel ', 'Arnaud', 'michelarnaud100@gmail.com', '88301037', 'tamercon', 'Homme', '2002-12-19', 'Étudiant', NULL, '2020-06-04 23:02:14', 41, 'Christianisme', 4960, 41, 'xyz14arci0012', 'xyz14arci0012', 'xyz14arci0012'),
+(13, 'Godwill', 'Esxo', 'escobaryves@gmail.com', '52535353', 'Esco-0000', 'Homme', '1950-06-04', 'Data analyst', NULL, '2020-06-04 23:19:46', 27, 'Christianisme', 2260, 7, 'xyz46arci0013', 'xyz46arci0013', 'xyz46arci0013'),
+(14, 'Lodié', 'Mathieu', 'rocheaffi@gmail.com', '+330767388991', 'd@n1el24', 'Homme', '1998-12-05', 'Etudiant', NULL, '2020-06-04 23:39:55', 41, 'Christianisme', 4960, 41, 'xyz55arci0014', 'xyz55arci0014', 'xyz55arci0014'),
+(15, 'Verdugo', 'Samos', 'vidalnguessan4@gmail.com', '48280092', 'D4444', 'Homme', '1998-04-12', 'Étudiant et trader', NULL, '2020-06-04 23:59:11', 41, 'Inconnue', 4960, 41, 'xyz11arci0015', 'xyz11arci0015', 'xyz11arci0015'),
+(16, 'Josi', 'Ines', 'Jomadelove@gmail.com', '78165270', '21080409', 'Femme', '2002-12-31', 'Étudiante', NULL, '2020-06-05 00:00:21', 41, 'Christianisme', 4960, 41, 'xyz21arci0016', 'xyz21arci0016', 'xyz21arci0016'),
+(17, 'Alla', 'Fassoro Othniel', 'othnielalla@gmail.com', '58349360', 'Anita3005', 'Homme', '1999-02-18', 'Etudiant', NULL, '2020-06-05 00:03:41', 41, 'Christianisme', 4960, 41, 'xyz41arci0017', 'xyz41arci0017', 'xyz41arci0017'),
+(18, 'Enygeek', 'Enygeek', 'enycode@gmail.com', '08898554', '12345678', 'Homme', '1999-10-30', 'Conseiller financier', NULL, '2020-06-05 00:21:44', 41, 'Christianisme', 4966, 41, 'xyz44arci0018', 'xyz44arci0018', 'xyz44arci0018'),
+(19, 'Essis', 'Desiree', 'desiieessis@outlook.com', '79985669', 'desireeessis1402', 'Femme', '1998-02-14', 'Etudiante', NULL, '2020-06-05 00:46:41', 41, 'Christianisme', 4960, 41, 'xyz41arci0019', 'xyz41arci0019', 'xyz41arci0019'),
+(20, 'Evilafo', 'Evilafo', 'Evilafo', '+22589786915', 'Evilafo', 'Homme', '1999-12-11', 'Étudiante', NULL, '2020-06-05 01:31:55', 41, 'Christianisme', 4960, 41, 'xyz55arci0020', 'xyz55arci0020', 'xyz55arci0020'),
+(21, 'N\'GUESSAN', 'Emma Fleur Priscille', 'emma@yahoo.fr', '08452364', 'Emmalohoues', 'Femme', '1998-02-19', 'Étudiante en Administration des affaires ', NULL, '2020-06-05 06:46:06', 41, 'Inconnue', 4960, 41, 'xyz06arci0021', 'xyz06arci0021', 'xyz06arci0021'),
+(22, 'Oumar ', 'Kouassi ', 'oumarkwassi@gmail.com', '77072236', 'Ouattara', 'Homme', '2002-01-10', 'Élève ', NULL, '2020-06-05 08:27:39', 41, 'Islam', 4960, 41, 'xyz39arci0022', 'xyz39arci0022', 'xyz39arci0022'),
+(23, 'Dieng', 'Yama Dior ', 'yamadiordieng@gmail.com', '57875404', 'Yamalastar', 'Femme', '2002-07-05', 'Étudiante ', NULL, '2020-06-05 11:21:10', 41, 'Christianisme', 4960, 41, 'xyz10arci0023', 'xyz10arci0023', 'xyz10arci0023'),
+(24, 'Kamarou', 'Samaad Opeyemi', 'kamarusamad@gmail.com', '57845201', 'Souley', 'Homme', '1999-08-26', 'Étudiant ', NULL, '2020-06-05 11:25:26', 41, 'Islam', 4960, 41, 'xyz26arci0024', 'xyz26arci0024', 'xyz26arci0024'),
+(25, 'Djecketh', 'Aniéla Carly', 'Carlyanie@gmail.com', '88474410', 'Anielacarly', 'Femme', '1998-05-09', 'Etudiante', NULL, '2020-06-05 11:57:11', 41, 'Christianisme', 4960, 41, 'xyz11arci0025', 'xyz11arci0025', 'xyz11arci0025'),
+(26, 'Coulibaly', 'Cyntiche', 'Chistjess.@gmail.com', '', 'Ffffffff', 'Femme', '1999-12-31', 'Etudiante', NULL, '2020-06-05 12:18:05', 41, 'Christianisme', 4960, 41, 'xyz05arci0026', 'xyz05arci0026', 'xyz05arci0026'),
+(27, 'GBE', 'SEKOU JUSTIN', 'gbesjah@gmail.com', '78899338', 'justingbe1er', 'Homme', '1999-06-01', 'Étudiant ', NULL, '2020-06-05 12:25:05', 41, 'Islam', 4960, 41, 'xyz05arci0027', 'xyz05arci0027', 'xyz05arci0027'),
+(28, 'Lou', 'Akin', 'louakinloye@gmail.com', '52976444', 'Akiki777', 'Femme', '2000-06-07', 'Étudiante', NULL, '2020-06-05 13:45:11', 41, 'Christianisme', 4961, 41, 'xyz11arci0028', 'xyz11arci0028', 'xyz11arci0028'),
+(29, 'Koffi', 'Emmanuelle', 'emma@gmail.com', '51179350', 'soule007', 'Femme', '2002-12-02', 'Etudiante', NULL, '2020-06-05 13:49:43', 41, 'Islam', 4961, 41, 'xyz43arci0029', 'xyz43arci0029', 'xyz43arci0029'),
+(30, 'Ogoua', 'Yves Roland', 'Rolandogoua@gmail.com', '+22589710796', 'mamanpapa210399', 'Homme', '1999-03-21', 'Etudiant', NULL, '2020-06-05 17:14:56', 41, 'Christianisme', 174, 41, 'xyz56arci0030', 'xyz56arci0030', 'xyz56arci0030');
 
 -- --------------------------------------------------------
 
@@ -238,7 +324,6 @@ INSERT INTO `liste_centre_interet` (`id_ci`, `ci`) VALUES
 (17, 'Histoire'),
 (18, 'Politique'),
 (19, 'Religion'),
-(20, 'Pornographie'),
 (21, 'Divers');
 
 -- --------------------------------------------------------
@@ -252,16 +337,9 @@ CREATE TABLE `message` (
   `id_discussion` int(11) NOT NULL,
   `id_sender` int(11) NOT NULL,
   `id_receiver` int(11) NOT NULL,
-  `message` text,
+  `message` text DEFAULT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `message`
---
-
-INSERT INTO `message` (`id_message`, `id_discussion`, `id_sender`, `id_receiver`, `message`, `date`) VALUES
-(1, 1, 5, 6, 'Coucou', '2020-06-04 11:40:24');
 
 -- --------------------------------------------------------
 
@@ -318,7 +396,8 @@ INSERT INTO `pays` (`id_pays`, `nom_pays`) VALUES
 (37, 'Chili'),
 (38, 'Chine'),
 (39, 'Chypre'),
-(40, 'Colombie');
+(40, 'Colombie'),
+(41, 'Côte d\'Ivoire');
 
 -- --------------------------------------------------------
 
@@ -5297,7 +5376,19 @@ INSERT INTO `villes` (`id_ville`, `id_pays`, `nom_ville`) VALUES
 (4956, 40, 'Villavicencio'),
 (4957, 40, 'Yopal'),
 (4958, 40, 'Yumbo'),
-(4959, 40, 'Zipaquir&aacute;');
+(4959, 40, 'Zipaquir&aacute;'),
+(4960, 41, 'Abidjan'),
+(4961, 41, 'Yamoussoukro'),
+(4962, 41, 'Daloa'),
+(4963, 41, 'San Pedro'),
+(4964, 41, 'Gagnoa'),
+(4965, 41, 'Korhogo'),
+(4966, 41, 'Grand-Bassam'),
+(4967, 41, 'Man'),
+(4968, 41, 'Ferkessedougou'),
+(4969, 41, 'Bonoua'),
+(4970, 41, 'Odiene'),
+(4971, 41, 'Abengourou');
 
 -- --------------------------------------------------------
 
@@ -5424,19 +5515,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `connexion`
 --
 ALTER TABLE `connexion`
-  MODIFY `id_connexion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_connexion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `discussion`
 --
 ALTER TABLE `discussion`
-  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `individu`
 --
 ALTER TABLE `individu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `liste_centre_interet`
@@ -5448,19 +5539,19 @@ ALTER TABLE `liste_centre_interet`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `pays`
 --
 ALTER TABLE `pays`
-  MODIFY `id_pays` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_pays` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT pour la table `villes`
 --
 ALTER TABLE `villes`
-  MODIFY `id_ville` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4960;
+  MODIFY `id_ville` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4972;
 
 --
 -- Contraintes pour les tables déchargées
